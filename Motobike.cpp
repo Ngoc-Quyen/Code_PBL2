@@ -62,26 +62,30 @@ void Motobike::Show()
     cout << "\tMau xe: " << this->Mau << endl;
     cout << "\tGia thue: " << this->Gia << endl;
     cout << "\tTinh trang: ";
-    if (this->isRend != 0) cout << "Da thue\n";
-    else cout << "Chua thue\n";
+    if (this->isRend != 0)
+        cout << "Da thue\n";
+    else
+        cout << "Chua thue\n";
 }
 
-istream& operator >> (istream& in, Motobike& moto)
+istream &operator>>(istream &in, Motobike &moto)
 {
     cout << "\tNhap Ten xe: ";
     getline(in, moto.NameBike);
-   // in.ignore();
     cout << "\tNhap Bien so xe: ";
     getline(in, moto.BienSo);
-   // in.ignore();
     cout << "\tNhap Phan khoi xe: ";
     in >> moto.PhanKhoi;
-    cout << "\tNhap Mau xe: "; in >> moto.Mau;
-    cout << "\tNhap Gia thue: "; in >> moto.Gia;
+    in.ignore();
+    cout << "\tNhap Mau xe: ";
+    getline(in, moto.Mau);
+    cout << "\tNhap Gia thue: ";
+    in >> moto.Gia;
+    in.ignore();
     moto.isRend = 0;
     return in;
 }
-ostream& operator << (ostream& out, Motobike moto)
+ostream &operator<<(ostream &out, Motobike moto)
 {
     cout << "\tTen xe: " << moto.getNameBike() << endl;
     cout << "\tien so xe: " << moto.getBienso() << endl;
@@ -89,6 +93,8 @@ ostream& operator << (ostream& out, Motobike moto)
     cout << "\tMau xe: " << moto.getMau() << endl;
     cout << "\tGia thue: " << moto.getGia() << endl;
     cout << "\tTinh trang: ";
-    if (moto.getIsRend() != 0) cout << "Da thue\n";
-    else cout << "Chua thue\n";
+    if (moto.getIsRend() != 0)
+        cout << "Da thue\n";
+    else
+        cout << "Chua thue\n";
 }

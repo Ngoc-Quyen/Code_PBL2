@@ -62,7 +62,7 @@ void Date::ShowRental()
     this->setYear(dt->tm_year + 1900);
     
     if (this->year != 0)
-        cout << "Ngay thue: " << this->day << "/" << this->month << "/" << this->year << endl;
+        cout << "\tNgay thue: " << this->day << "/" << this->month << "/" << this->year << endl;
 }
 Date Date::getTimeNow()
 {
@@ -76,7 +76,7 @@ void Date::ShowReturn(int number)
     for (int i = 0; i < number; i++)
         this->NextDay();
     if (this->year != 0)
-        cout << "Ngay tra: " << this->day << "/" << this->month << "/" << this->year << endl;
+        cout << "\tNgay tra: " << this->day << "/" << this->month << "/" << this->year << endl;
 }
 // Date Date::getTimeReturn(int number)
 // {
