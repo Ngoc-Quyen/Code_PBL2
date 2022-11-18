@@ -339,7 +339,7 @@ void MenuAdmin()
          << "\t\t\t\t\t\t\t|\t\t14. Chinh sua ngay thue xe cua khach hang" << endl;
     cout << endl;
     cout << "\t\t15. Xuat hoa don cua khach theo bien so"
-         << "\t\t\t\t|\t\t0. Thoat che do Admin" << endl;
+         << "\t\t\t\t\t\t|\t\t0. Thoat che do Admin" << endl;
     cout << endl;
     cout << "\t------------------------------------------------------------------------"
             "----------------------------------------------------------------------------"
