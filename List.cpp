@@ -556,3 +556,107 @@ void List::UpdatePrice(string bienso)
     (this->p + k)->Moto.setGia(n);
     cout << "\n------Cap Nhat Thanh Cong------\n";
 }
+void List::Merge(List &t, int l, int m, int r, bool (*TypeSort)(int, int) )
+{
+    int n1 = m - l + 1;
+    int n2 = r - m;
+    ThueXe *t1 = new ThueXe[n1];
+    ThueXe *t2 = new ThueXe[n2];
+    for (int i = 0; i < n1; i++)
+    {
+        *(t1 + i) = *(t.p + l + i);
+    }
+    for (int j = 0; j < n2; j++)
+    {
+        *(t2 + j) = *(t.p + m + 1 + j);
+    }
+    int i = 0, j = 0, k = l;
+    while (i < n1 && j < n2)
+    {
+        if (TypeSort((t1 + i)->Moto.getGia(), (t2 + j)->Moto.getGia()))
+        {
+            *(t.p + k) = *(t1 + i);
+            i++;
+        }
+        else
+        {
+            *(t.p + k) = *(t2 + j);
+            j++;
+        }
+        k++;
+    }
+    while (i < n1)
+    {
+        *(t.p + k) = *(t1 + i);
+        i++;
+        k++;
+    }
+    while (j < n2)
+    {
+        *(t.p + k) = *(t2 + j);
+        k++;
+        j++;
+    }
+}
+void List::MergeSort(List &t, int l, int r, bool (*Type)(int, int))
+{
+    if (l < r)
+    {
+        int m = (l + r) / 2;
+        MergeSort(t, l, m, Type);
+        MergeSort(t, m + 1, r, Type);
+        Merge(t, l, m, r, Type);
+    }
+}
+void List::MergeAdm(List &t, int l, int m, int r, bool (*TypeSort)(int, int))
+{
+    int n1 = m - l + 1;
+    int n2 = r - m;
+    ThueXe *t1 = new ThueXe[n1];
+    ThueXe *t2 = new ThueXe[n2];
+    for (int i = 0; i < n1; i++)
+    {
+        *(t1 + i) = *(t.p + l + i);
+    }
+    for (int j = 0; j < n2; j++)
+    {
+        *(t2 + j) = *(t.p + m + 1 + j);
+    }
+    int i = 0, j = 0, k = l;
+    while (i < n1 && j < n2)
+    {
+        if (TypeSort((t1 + i)->GetMoney(), (t2 + j)->GetMoney()))
+        {
+            *(t.p + k) = *(t1 + i);
+            i++;
+        }
+        else
+        {
+            *(t.p + k) = *(t2 + j);
+            j++;
+        }
+        k++;
+    }
+    while (i < n1)
+    {
+        *(t.p + k) = *(t1 + i);
+        i++;
+        k++;
+    }
+    while (j < n2)
+    {
+        *(t.p + k) = *(t2 + j);
+        k++;
+        j++;
+    }
+}
+void List::MergeSortAdm(List &t, int l, int r, bool (*Type)(int, int))
+{
+    if (l < r)
+    {
+        int m = (l + r) / 2;
+        MergeSortAdm(t, l, m, Type);
+        MergeSortAdm(t, m + 1, r, Type);
+        MergeAdm(t, l, m, r, Type);
+    }
+}

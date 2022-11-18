@@ -38,4 +38,8 @@ public:
     void ShowRented();
     void UpdateAfter(string);
     void UpdatePrice(string);
+    void Merge(List&, int, int, int, bool(*) (int, int));
+    void MergeSort(List&, int, int, bool(*) (int, int));
+    void MergeAdm(List&, int, int, int,  bool(*) (int, int));
+    void MergeSortAdm(List&, int, int, bool(*) (int, int));
 };

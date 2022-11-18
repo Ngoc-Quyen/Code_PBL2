@@ -227,6 +227,15 @@ void set_color(int code)
     SetConsoleTextAttribute(color, code);
 }
 
+bool ASC(int a, int b)
+{
+    return a < b;
+}
+bool DESC(int a, int b)
+{
+    return a > b;
+}
+
 void PriceTable()
 {
     system("cls");
@@ -407,6 +416,7 @@ int Login()
 void ShowAdmin(List &t)
 {
     int cmt, q;
+    List tmp;
     do
     {
         set_color(10);
@@ -483,7 +493,9 @@ void ShowAdmin(List &t)
         case 6:
         {
             system("cls");
-            cout << "Can Bo Sung Sau\n";
+            tmp = t;
+            t.MergeSortAdm(tmp, 0, tmp.getLength() - 1, ASC);
+            tmp.ShowRented();
             system("pause");
         }
         break;
@@ -497,7 +509,9 @@ void ShowAdmin(List &t)
         case 8:
         {
             system("cls");
-            cout << "Can Bo Sung Sau\n";
+            tmp = t;
+            t.MergeSortAdm(tmp, 0, tmp.getLength() - 1, DESC);
+            tmp.ShowRented();
             system("pause");
         }
         break;
@@ -592,6 +606,7 @@ void ShowAdmin(List &t)
 void ShowUser(List &t)
 {
     int cmt, q;
+    List tmp;
     do
     {
         set_color(3);
@@ -687,14 +702,20 @@ void ShowUser(List &t)
         case 6:
         {
             system("cls");
-            cout << "Can Bo Sung Sau\n";
+            tmp = t;
+            t.MergeSort(tmp, 0, tmp.getLength() - 1, ASC);
+            set_color(7);
+            tmp.ShowMotoUser();
             system("pause");
         }
         break;
         case 7:
         {
             system("cls");
-            cout << "Can Bo Sung Sau\n";
+            tmp = t;
+            t.MergeSort(tmp, 0, tmp.getLength() - 1, DESC);
+            set_color(7);
+            tmp.ShowMotoUser();
             system("pause");
         }
         break;
