@@ -14,6 +14,7 @@ public:
     ~List();
     List operator=(const List &);
     int getLength();
+    void Display();
     void Add(Motobike &); //Them xe vao he thong
     int CheckBienso(Motobike &); 
     bool CheckCmnd(Person &);
@@ -33,4 +34,8 @@ public:
     void DeleteMoto(string );
     void UpdateAfter(int = 0);
     void Clear(ThueXe&);
+    void UpdateDateRental(string);
+    void ShowRented();
+    void UpdateAfter(string);
+    void UpdatePrice(string);
 };

@@ -14,7 +14,9 @@ void ThueXe::Show()
     this->Per.Show();
     this->Moto.Show();
     this->DateRetal.ShowRental();
-    this->DateRetal.ShowReturn(this->Number);
+    // this->DateRetal.ShowReturn(this->Number);
+    this->DateReturn.ShowReturn(this->Number);
+
     if (this->GetMoney() > 0)
     {
         cout << "\tSo ngay thue: " << this->Number << endl;

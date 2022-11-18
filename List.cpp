@@ -42,6 +42,22 @@ int List::getLength()
 {
     return this->len;
 }
+void List::Display()
+{
+    if (this->len == 0)
+    {
+        cout << "\tKhong Co Xe Trong He Thong! Vui Long Kiem Tra Lai!\n";
+    }
+    else
+    {
+        cout << "\tDanh Sach Xe Trong He Thong\n";
+        for (int i = 0; i < this->len; i++)
+        {
+            cout << "Motobike " << i + 1 << endl;
+            (*(this->p + i)).Show();
+        }
+    }
+}
 void List::Add(Motobike &m)
 {
     if (this->len == 0)
@@ -100,11 +116,16 @@ bool List::CheckCmnd(Person &per)
 void List::ShowBike()
 {
     system("cls");
-    cout << "\tDanh sach xe trong he thong\n";
-    for (int i = 0; i < this->len; i++)
+    if (this->len == 0)
+        cout << "\tKhong Co Xe Trong He Thong\n";
+    else
     {
-        cout << "Motobike " << i + 1 << ":\n";
-        (*(p + i)).Moto.Show();
+        cout << "\tDanh sach xe trong he thong\n";
+        for (int i = 0; i < this->len; i++)
+        {
+            cout << "Motobike " << i + 1 << ":\n";
+            (*(p + i)).Moto.Show();
+        }
     }
 }
 Date getTimeNow()
@@ -404,7 +425,7 @@ void List::DeleteMoto(string bienso)
             ThueXe *tmp = new ThueXe[this->len];
             for (int i = 0; i < this->len; i++)
             {
-                 *(tmp + i) = *(this->p + i );
+                *(tmp + i) = *(this->p + i);
             }
             delete[] p;
             this->p = new ThueXe[this->len];
@@ -419,19 +440,18 @@ void List::DeleteMoto(string bienso)
             this->len--;
             system("cls");
             cout << "Xoa Xe Thanh Cong!\n";
-
         }
-        else 
-        cout << "Xe Da Duoc Thue!\n";
+        else
+            cout << "Xe Da Duoc Thue!\n";
     }
-    else 
+    else
         cout << "Khong Co Xe He Thong! Vui Long Kiem Tra Lai!\n";
 }
 void List::UpdateAfter(int n)
 {
     if (n < 0)
         cout << "So Luong Xe Nhap Vao Khong Hop Le!\n";
-    else 
+    else
     {
         for (int i = 0; i < n; i++)
         {
@@ -441,28 +461,98 @@ void List::UpdateAfter(int n)
             int k = indexOf(bienso);
             if (k == -1)
                 cout << "Xe Khong Co Trong He Thong! Vui Long Kiem Tra Lai!\n";
-            else 
+            else
             {
-                if ((*(this->p + k)).Moto.getIsRend() != 0) 
+                if ((*(this->p + k)).Moto.getIsRend() != 0)
                 {
                     Date d = getTimeNow();
-                (*(this->p + k)).DateReturn = d;
-                (*(this->p + k)).ShowBill();
-                Clear(*(this->p + k));
-                (*(this->p + k)).Moto.setIsRend(0);
+                    (*(this->p + k)).DateReturn = d;
+                    (*(this->p + k)).ShowBill();
+                    Clear(*(this->p + k));
+                    (*(this->p + k)).Moto.setIsRend(0);
                 }
-                else 
+                else
                     cout << "Xe Co Trong He Thong Va Chua Duoc Thue!\n";
-
             }
         }
     }
 }
-void List::Clear(ThueXe& tra)
+void List::UpdateAfter(string bs)
+{
+    int k = indexOf(bs);
+    if (k == -1)
+                cout << "Xe Khong Co Trong He Thong! Vui Long Kiem Tra Lai!\n";
+            else
+            {
+                if ((*(this->p + k)).Moto.getIsRend() != 0)
+                {
+                    Date d = getTimeNow();
+                    (*(this->p + k)).DateReturn = d;
+                    // (*(this->p + k)).ShowBill();
+                    Clear(*(this->p + k));
+                    (*(this->p + k)).Moto.setIsRend(0);
+                }
+                else
+                    cout << "Xe Co Trong He Thong Va Chua Duoc Thue!\n";
+            }
+}
+void List::Clear(ThueXe &tra)
 {
     Person a;
     tra.Per = a;
     tra.Number = 0;
     Date d;
     tra.DateRetal = tra.DateReturn = d;
+}
+void List::UpdateDateRental(string bienso)
+{
+    Date n;
+    int k = indexOf(bienso);
+    if ((this->p + k)->Moto.getIsRend() == 0)
+    {
+        cout << "Khong Co Xe Nao Trong Danh Sach\n";
+        return;
+    }
+    if (k == -1)
+    {
+        cout << "Bien So Khong Dung\n";
+        return;
+    }
+    cout << "Nhap Ngay Thue Muon Cap Nhat \n";
+    cin >> n;
+    (this->p + k)->DateRetal = n;
+}
+void List::ShowRented()
+{
+    if (this->len == 0)
+    {
+        cout << "\tKhong Co Xe Nao Trong He Thong\n";
+    }
+    else
+    {
+        cout << "\tDanh Sach Xe Va Tinh Trang Trong He Thong\n";
+        int j = 1;
+        for (int i = 0; i < this->len; i++)
+        {
+            if ((*(this->p + i)).Moto.getIsRend())
+            {
+                cout << "Customer " << j << endl;
+                (*(this->p + i)).Show();
+                j++;
+            }
+        }
+        if (j == 1) 
+        {
+            cout << "\tChua Co Khach Thue\n";
+        }
+    }
+}
+void List::UpdatePrice(string bienso)
+{
+    int n;
+    int k = indexOf(bienso);
+    cout << "Nhap Gia Xe Muon Cap Nhat: ";
+    cin >> n;
+    (this->p + k)->Moto.setGia(n);
+    cout << "\n------Cap Nhat Thanh Cong------\n";
 }

@@ -55,11 +55,11 @@ ostream& operator << (ostream& out, Date d)
 }
 void Date::ShowRental()
 {
-    time_t now = time(0);
-    tm *dt = localtime(&now);
-    this->setDay(dt->tm_mday);
-    this->setMonth(dt->tm_mon + 1);
-    this->setYear(dt->tm_year + 1900);
+    // time_t now = time(0);
+    // tm *dt = localtime(&now);
+    // this->setDay(dt->tm_mday);
+    // this->setMonth(dt->tm_mon + 1);
+    // this->setYear(dt->tm_year + 1900);
     
     if (this->year != 0)
         cout << "\tNgay thue: " << this->day << "/" << this->month << "/" << this->year << endl;

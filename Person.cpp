@@ -47,11 +47,14 @@ string Person::getAdd()
 }
 void Person::Show()
 {
-    cout << "\tTen khach hang: " << this->Name << endl;
-    cout << "\tTuoi: " << this->Age << endl;
-    cout << "\tSo CMND/Ho chieu: " << this->CMND << endl;
-    cout << "\tSo dien thoai: " << this->SDT << endl;
-    cout << "\tDia chi: " << this->Add << endl;
+    if (this->getAge() != 0)
+    {
+        cout << "\tTen khach hang: " << this->Name << endl;
+        cout << "\tTuoi: " << this->Age << endl;
+        cout << "\tSo CMND/Ho chieu: " << this->CMND << endl;
+        cout << "\tSo dien thoai: " << this->SDT << endl;
+        cout << "\tDia chi: " << this->Add << endl;
+    }
 }
 istream &operator>>(istream &in, Person &p)
 {
