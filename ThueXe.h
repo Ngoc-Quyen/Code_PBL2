@@ -10,6 +10,8 @@ class ThueXe
         Date DateRetal;
         Date DateReturn;
         int Number;
+        static int tong;
+
     public:
         ThueXe();
         ThueXe(const Person &, const Motobike&, /*const Date&, const Date&, */int = 0);

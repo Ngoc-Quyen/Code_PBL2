@@ -346,8 +346,7 @@ void List::ShowCustomer()
 }
 long long List::SumMoney()
 {
-    long long sum = 0;
-
+    long long sum = ThueXe::tong;
     for (int i = 0; i < this->len; i++)
     {
         if ((this->p + i)->Number > 0)
@@ -521,6 +520,7 @@ void List::UpdateDateRental(string bienso)
     cout << "Nhap Ngay Thue Muon Cap Nhat \n";
     cin >> n;
     (this->p + k)->DateRetal = n;
+    cout << "\nCap Nhat Thanh Cong\n";
 }
 void List::ShowRented()
 {

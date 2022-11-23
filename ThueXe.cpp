@@ -9,6 +9,7 @@ ThueXe::ThueXe(const Person &p, const Motobike &m, /* const Date& d1, const Date
     this->Number = d;
 }
 ThueXe::~ThueXe() {}
+int ThueXe::tong = 0;
 void ThueXe::Show()
 {
     this->Per.Show();
@@ -20,7 +21,7 @@ void ThueXe::Show()
     if (this->GetMoney() > 0)
     {
         cout << "\tSo ngay thue: " << this->Number << endl;
-        cout << "\tSo tien thanh toan: " << this->GetMoney() << endl;
+
     }
 }
 long long ThueXe::GetMoney()
@@ -46,6 +47,8 @@ void ThueXe::ShowBill()
     this->DateRetal.ShowReturn(this->Number);
     cout << "\tSo ngay thue: " << this->Number << endl;
     cout << "\tTong tien thanh toan: " << this->GetMoney() << endl;
+    ThueXe::tong += this->GetMoney();
+
     cout << "-------------Hen Gap Lai----------------" << endl;
 }
 ThueXe &ThueXe::operator=(const ThueXe &tx)

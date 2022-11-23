@@ -6,7 +6,7 @@ class List
 private:
     ThueXe *p;
     int len;
-
+    
 public:
     List();
     List(ThueXe *, int = 0);

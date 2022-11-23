@@ -1,220 +1,4 @@
 
-// #include "List.h"
-// void Menu()
-// {
-//     cout << "\tMENU\n";
-//     cout << "0. Thoat chuong trinh\n";
-
-//     cout << "5. Them xe vao he thong\n";
-//     cout << "6. Xuat danh sach xe trong he thong\n";
-//     cout << "7. Thue xe\n";
-//     cout << "8. Nhap danh sach xe vao he thong\n";
-//     cout << "9. Nhap danh sach khach thue vao he thong\n";
-//     cout << "10. Danh sach xe chua duoc thue trong he thong\n";
-//     cout << "11. Dang sach xe da thue\n";
-//     cout << "12. Doanh thu cua homestay\n";
-//     cout << "13. Tim kiem xe theo bien so\n";
-//     cout << "14. Tim kiem xe theo phan khoi\n";
-//     cout << "15. Xuat hoa don cua khach theo bien so\n";
-//     cout << "16. Xoa xe trong he thong\n";
-//     cout << "17. Tra Xe\n";
-// }
-
-// int main()
-// {
-
-//     int cmt, q;
-//     List t;
-//     do
-//     {
-//         Menu();
-//         cout << "Nhap Lua Chon: ";
-//         cin >> cmt;
-//         switch (cmt)
-//         {
-
-//         case 5:
-//         {
-//             system("cls");
-//             int n;
-//             cout << "Nhap So Luong Xe Muon Them: ";
-//             cin >> n;
-//             cin.ignore();
-//             if (n < 1)
-//                 break;
-//             for (int i = 0; i < n; i++)
-//             {
-//                 cout << "Nhap Thong Tin Xe " << i + 1 << endl;
-//                 Motobike moto;
-//                 do
-//                 {
-//                     cin >> moto;
-//                 } while (!t.CheckBienso(moto));
-//                 t.Add(moto);
-//             }
-//             system("pause");
-//         }
-//         break;
-//         case 6:
-//         {
-//             system("cls");
-//             t.ShowBike();
-//             system("pause");
-//         }
-//         break;
-//         case 7:
-
-//         {
-//             system("cls");
-//             t.ShowMotoUser();
-//             t.UpdateRental();
-//             system("pause");
-//         }
-//         break;
-//         case 8:
-//         {
-//             try
-//             {
-//                 t.EnterListMoto();
-//             }
-//             catch (exception &e)
-//             {
-//                 cout << "File Nhap Vao Loi Roi Kia thang n.g.u\n";
-//             }
-//             system("pause");
-//         }
-//         break;
-//         case 9:
-//         {
-//             try
-//             {
-//                 t.EnterListUser();
-//             }
-//             catch (exception &e)
-//             {
-//                 cout << "File Nhap Vao Loi Roi Kia thang n.g.u\n";
-//             }
-//             system("pause");
-//         }
-//         break;
-//         case 10:
-//         {
-//             system("cls");
-//             t.ShowMotoUser();
-//             system("pause");
-//         }
-//         break;
-//         case 11:
-//         {
-//             system("cls");
-//             t.ShowCustomer();
-//             system("pause");
-//         }
-//         break;
-//         case 12:
-//         {
-//             system("cls");
-//             cout << "\tTong Doanh Thu: " << t.SumMoney() << endl;
-//             system("pause");
-//         }
-//         break;
-//         case 13:
-//         {
-//             system("cls");
-//             string bs;
-//             string str;
-//             cout << "Nhap Bien So Xe Can Tim: ";
-//             cin >> bs;
-//             t.FindUser(bs, q);
-//             if (q == 1)
-//             {
-//                 cout << "Ban Co Muon Thue Xe Khong? C/K?\n";
-//                 cout << "Nhap Lua Chon: ";
-//                 cin >> str;
-//                 while (str != "C" && str != "c" && str != "K" && str != "k")
-//                 {
-//                     cout << "Lua Chon Khong Phu Hop! Vui Long Nhap Lai!\n";
-//                     cout << "Nhap Lua Chon: ";
-//                     cin >> str;
-//                 }
-//                 if (str == "c" || str == "C")
-//                 {
-//                     cout << "Chao Mung Ban Den Voi Dich Vu Thue Xe\n";
-//                     t.UpdateRental();
-//                 }
-//             }
-
-//             system("pause");
-//         }
-//         break;
-//         case 14:
-//         {
-//             system("cls");
-//             int pk;
-//             string str;
-//             cout << "Nhap Phan Khoi Xe Can Tim: ";
-//             cin >> pk;
-//             t.FindUser(pk, q);
-//             if (q == 1)
-//             {
-//                 cout << "Ban Co Muon Thue Xe Khong? C/K?\n";
-//                 cout << "Nhap Lua Chon: ";
-//                 cin >> str;
-//                 while (str != "C" && str != "c" && str != "K" && str != "k")
-//                 {
-//                     cout << "Lua Chon Khong Phu Hop! Vui Long Nhap Lai!\n";
-//                     cout << "Nhap Lua Chon: ";
-//                     cin >> str;
-//                 }
-//                 if (str == "c" || str == "C")
-//                 {
-//                     t.UpdateRental();
-//                 }
-//             }
-
-//             system("pause");
-//         }
-//         break;
-//         case 15:
-//         {
-//             system("cls");
-//             string str;
-//             cout << "Nhap Bien So Xe Khach Hang Muon In Hoa Don: \n";
-//             cin >> str;
-//             t.BillUser(str, q);
-//             system("pause");
-//         }
-//         break;
-//         case 16:
-//         {
-//             system("cls");
-//             string str;
-//             cout << "Nhap Bien So Xe Muon Xoa: ";
-//             cin >> str;
-//             t.DeleteMoto(str);
-//             system("pause");
-//         }
-//         break;
-//         case 17:
-//         {
-//             system("cls");
-//             int n;
-//             cout << "Nhap So Luong Xe Muon Tra: ";
-//             cin >> n;
-//             t.UpdateAfter(n);
-//             system("pause");
-//         }
-//         break;
-//         default:
-//             break;
-//         }
-//     } while (cmt != 0);
-//     // time_t now = time(0);
-//     // tm *dt = localtime(&now);
-//     // cout << dt->tm_mday << "/" << dt->tm_mon << "/" << dt->tm_year;
-//     return 0;
-// }
-
 #include "List.h"
 #include <iostream>
 #include <windows.h>
@@ -296,13 +80,11 @@ void MenuUser()
          << "\t\t\t\t\t\t\t|\t\t\t\t2. Hien Thi tat ca xe chua thue trong he thong" << endl;
     cout << endl;
     cout << "\t\t3. Thue Xe"
-         << "\t\t\t\t\t\t\t\t\t|\t\t\t\t4. Tim kiem xe theo bien so" << endl;
+         << "\t\t\t\t\t\t\t\t\t|\t\t\t\t4. Tim kiem xe theo yeu cau" << endl;
     cout << endl;
-    cout << "\t\t5. Tim kiem xe may theo so phan khoi"
-         << "\t\t\t\t\t\t|\t\t\t\t6. Sap xep gia xe tang dan" << endl;
+    cout << "\t\t5. Sap xep gia xe"
+         << "\t\t\t\t\t\t\t\t|\t\t\t\t0. Thoat che do User" << endl;
     cout << endl;
-    cout << "\t\t7. Sap xep xe theo gia xe giam dan"
-         << "\t\t\t\t\t\t|\t\t\t\t0. Thoat che do User" << endl;
     cout << "\t------------------------------------------------------------------------"
             "----------------------------------------------------------------------------"
             "-----------------------------";
@@ -321,25 +103,21 @@ void MenuAdmin()
          << "\t\t\t\t\t\t|\t\t2. Nhap danh sach khach thue vao he thong" << endl;
     cout << endl;
     cout << "\t\t3. Them xe may moi vao danh sach"
-         << "\t\t\t\t\t\t|\t\t4. Hien Thi tat ca thong tin khach hang da thue xe" << endl;
+         << "\t\t\t\t\t\t|\t\t4. Hien Thi " << endl;
     cout << endl;
     cout << "\t\t5. Tim kiem xe may va xuat thong tin xe may"
-         << "\t\t\t\t\t|\t\t6. Sap xep tang dan theo tien thue xe cua khach hang" << endl;
+         << "\t\t\t\t\t|\t\t6. Sap xep theo tien thue xe cua khach hang" << endl;
     cout << endl;
-    cout << "\t\t7. Hien thi danh sach cac xe chua duoc thue"
-         << "\t\t\t\t\t|\t\t8. Sap xep giam dan theo tien thue xe cua khach hang" << endl;
+    cout << "\t\t7. Tong doanh thu cua cua hang"
+         << "\t\t\t\t\t\t\t|\t\t8. Xoa 1 xe khoi he thong" << endl;
     cout << endl;
-    cout << "\t\t9. Tong doanh thu cua cua hang"
-         << "\t\t\t\t\t\t\t|\t\t10. Hien Thi Danh Sach Xe May" << endl;
+    cout << "\t\t9. Cap nhat danh sach sau khi khach hang tra xe"
+         << "\t\t\t\t\t|\t\t10. Cap nhat gia thue xe" << endl;
     cout << endl;
-    cout << "\t\t11. Cap nhat danh sach sau khi khach hang tra xe"
-         << "\t\t\t\t|\t\t12. Cap nhat gia thue xe" << endl;
+    cout << "\t\t11. Chinh sua ngay thue xe cua khach hang"
+         << "\t\t\t\t\t|\t\t12. Xuat hoa don cua khach theo bien so" << endl;
     cout << endl;
-    cout << "\t\t13. Xoa 1 xe khoi he thong"
-         << "\t\t\t\t\t\t\t|\t\t14. Chinh sua ngay thue xe cua khach hang" << endl;
-    cout << endl;
-    cout << "\t\t15. Xuat hoa don cua khach theo bien so"
-         << "\t\t\t\t\t\t|\t\t0. Thoat che do Admin" << endl;
+    cout << "\t\t0. Thoat che do Admin\n ";
     cout << endl;
     cout << "\t------------------------------------------------------------------------"
             "----------------------------------------------------------------------------"
@@ -474,8 +252,48 @@ void ShowAdmin(List &t)
         case 4:
         {
             system("cls");
-            t.ShowRented();
-            system("pause");
+            int cmp;
+            cout << "\t\t1. Hien Thi Danh Sach Tat Ca Xe Trong He Thong\n";
+            cout << "\t\t2. Hien Thi Danh Sach Xe Chua Duoc Thue\n";
+            cout << "\t\t3. Hien Thi Thong Tin Tat Ca Khach Dang Thue Xe\n";
+            cout << "\t\t0. Thoat\n";
+            cout << "\tNhap lua chon: ";
+            cin >> cmp;
+            while (cmp <0 || cmp > 3)
+            {
+                cout << "\t\tLua Chon Khong Phu Hop! Vui Long Nhap Lai!\n";
+                cout << "\tNhap lua chon: ";
+                cin >> cmp;
+            }
+            switch (cmp)
+            {
+            case 1:
+            {
+                set_color(7);
+                system("cls");
+                t.ShowBike();
+                system("pause");
+            }
+            break;
+            case 2:
+            {
+                system("cls");
+                t.ShowMotoUser();
+                system("pause");
+            }
+            break;
+            case 3:
+            {
+                system("cls");
+                t.ShowRented();
+                system("pause");
+            }
+            break;
+            case 0:
+                break;
+            default:
+                break;
+            }
         }
         break;
         case 5:
@@ -491,29 +309,46 @@ void ShowAdmin(List &t)
         case 6:
         {
             system("cls");
-            tmp = t;
-            t.MergeSortAdm(tmp, 0, tmp.getLength() - 1, ASC);
-            tmp.ShowRented();
-            system("pause");
+            int cmp;
+            cout << "\t\t1. Sap Xep Tang Dan Theo Tien Thue Cua Khach\n";
+            cout << "\t\t2. Sap Xep Giam Dan Theo Tien Thue Cua Khach\n";
+            cout << "\t\t0. Thoat\n";
+            cout << "\tNhap lua chon: ";
+            cin >> cmp;
+            while (cmp < 0 || cmp > 2)
+            {
+                cout << "\t\tLua Chon Khong Phu Hop! Vui Long Nhap Lai!\n";
+                cout << "\tNhap lua chon: ";
+                cin >> cmp;
+            }
+            switch (cmp)
+            {
+            case 1:
+            {
+                system("cls");
+                tmp = t;
+                t.MergeSortAdm(tmp, 0, tmp.getLength() - 1, ASC);
+                tmp.ShowRented();
+                system("pause");
+            }
+            break;
+            case 2:
+            {
+                system("cls");
+                tmp = t;
+                t.MergeSortAdm(tmp, 0, tmp.getLength() - 1, DESC);
+                tmp.ShowRented();
+                system("pause");
+            }
+            break;
+            case 0:
+            break;
+            default:
+                break;
+            }
         }
         break;
         case 7:
-        {
-            system("cls");
-            t.ShowCustomer();
-            system("pause");
-        }
-        break;
-        case 8:
-        {
-            system("cls");
-            tmp = t;
-            t.MergeSortAdm(tmp, 0, tmp.getLength() - 1, DESC);
-            tmp.ShowRented();
-            system("pause");
-        }
-        break;
-        case 9:
         {
             set_color(14);
             system("cls");
@@ -521,15 +356,17 @@ void ShowAdmin(List &t)
             system("pause");
         }
         break;
-        case 10:
+        case 8:
         {
-            set_color(7);
             system("cls");
-            t.ShowBike();
+            string str;
+            cout << "Nhap Bien So Xe Muon Xoa: ";
+            cin >> str;
+            t.DeleteMoto(str);
             system("pause");
         }
         break;
-        case 11:
+        case 9:
         {
             set_color(11);
             int n;
@@ -539,7 +376,7 @@ void ShowAdmin(List &t)
             system("pause");
         }
         break;
-        case 12:
+        case 10:
         {
             system("cls");
             set_color(3);
@@ -551,29 +388,21 @@ void ShowAdmin(List &t)
             system("pause");
         }
         break;
-        case 13:
-        {
-            system("cls");
-            string str;
-            cout << "Nhap Bien So Xe Muon Xoa: ";
-            cin >> str;
-            t.DeleteMoto(str);
-            system("pause");
-        }
-        break;
-        case 14:
+        case 11:
         {
             system("cls");
             set_color(10);
             t.ShowRented();
+
             string bs;
             cout << "Nhap Bien So Xe: ";
             cin >> bs;
             t.UpdateDateRental(bs);
             system("pause");
+            
         }
         break;
-        case 15:
+        case 12:
         {
             set_color(1);
             system("cls");
@@ -581,10 +410,12 @@ void ShowAdmin(List &t)
             cout << "Nhap Bien So Xe Khach Hang Muon Tra Xe Va In Hoa Don: \n";
             cin >> str;
             t.BillUser(str, q);
-            if (q != 0) t.UpdateAfter(str);
+            if (q != 0)
+                t.UpdateAfter(str);
             system("pause");
         }
         break;
+        
         case 0:
             break;
         default:
@@ -635,79 +466,130 @@ void ShowUser(List &t)
         break;
         case 4:
         {
-             system("cls");
-            string bs;
-            string str;
-            cout << "Nhap Bien So Xe Can Tim: ";
-            cin >> bs;
-            t.FindUser(bs, q);
-            if (q == 1)
+            system("cls");
+            int cmp;
+            cout << "\t\t1. Tim Kiem Xe Theo Bien So\n";
+            cout << "\t\t2. Tim Kiem Xe Theo Phan Khoi\n";
+            cout << "\t\t0. Thoat\n";
+            cout << "\tNhap lua chon: ";
+            cin >> cmp;
+            while (cmp < 0 || cmp > 3)
             {
-                cout << "Ban Co Muon Thue Xe Khong? C/K?\n";
-                cout << "Nhap Lua Chon: ";
-                cin >> str;
-                while (str != "C" && str != "c" && str != "K" && str != "k")
+                cout << "\tLua Chon Khong Phu Hop! Vui Long Nhap Lai!\n";
+                cout << "\tNhap lua chon: ";
+                cin >> cmp;
+            }
+            switch (cmp)
+            {
+            case 1:
+            {
+                system("cls");
+                set_color(5);
+                string bs;
+                string str;
+                cout << "Nhap Bien So Xe Can Tim: ";
+                cin >> bs;
+                t.FindUser(bs, q);
+                if (q == 1)
                 {
-                    cout << "Lua Chon Khong Phu Hop! Vui Long Nhap Lai!\n";
+                    cout << "Ban Co Muon Thue Xe Khong? C/K?\n";
                     cout << "Nhap Lua Chon: ";
                     cin >> str;
+                    while (str != "C" && str != "c" && str != "K" && str != "k")
+                    {
+                        cout << "Lua Chon Khong Phu Hop! Vui Long Nhap Lai!\n";
+                        cout << "Nhap Lua Chon: ";
+                        cin >> str;
+                    }
+                    if (str == "c" || str == "C")
+                    {
+                        cout << "Chao Mung Ban Den Voi Dich Vu Thue Xe\n";
+                        t.UpdateRental();
+                    }
                 }
-                if (str == "c" || str == "C")
-                {
-                    cout << "Chao Mung Ban Den Voi Dich Vu Thue Xe\n";
-                    t.UpdateRental();
-                }
-            }
 
-            system("pause");
+                system("pause");
+            }
+            break;
+            case 2:
+            {
+                system("cls");
+                set_color(6);
+                int pk;
+                string str;
+                cout << "Nhap Phan Khoi Xe Can Tim: ";
+                cin >> pk;
+                t.FindUser(pk, q);
+                if (q == 1)
+                {
+                    cout << "Ban Co Muon Thue Xe Khong? C/K?\n";
+                    cout << "Nhap Lua Chon: ";
+                    cin >> str;
+                    while (str != "C" && str != "c" && str != "K" && str != "k")
+                    {
+                        cout << "Lua Chon Khong Phu Hop! Vui Long Nhap Lai!\n";
+                        cout << "Nhap Lua Chon: ";
+                        cin >> str;
+                    }
+                    if (str == "c" || str == "C")
+                    {
+                        t.UpdateRental();
+                    }
+                }
+
+                system("pause");
+            }
+            break;
+            case 0:
+                break;
+            default:
+                break;
+            }
         }
         break;
         case 5:
         {
             system("cls");
-            int pk;
-            string str;
-            cout << "Nhap Phan Khoi Xe Can Tim: ";
-            cin >> pk;
-            t.FindUser(pk, q);
-            if (q == 1)
+            int cmp;
+            cout << "\t\t1. Sap Xep Theo Gia Xe Tang Dan\n";
+            cout << "\t\t2. Sap Xep Theo Gia Xe Giam Dan\n";
+            cout << "\t\t0. Thoat\n";
+            cout << "\tNhap lua chon: ";
+            cin >> cmp;
+            while (cmp < 0 || cmp > 2)
             {
-                cout << "Ban Co Muon Thue Xe Khong? C/K?\n";
-                cout << "Nhap Lua Chon: ";
-                cin >> str;
-                while (str != "C" && str != "c" && str != "K" && str != "k")
-                {
-                    cout << "Lua Chon Khong Phu Hop! Vui Long Nhap Lai!\n";
-                    cout << "Nhap Lua Chon: ";
-                    cin >> str;
-                }
-                if (str == "c" || str == "C")
-                {
-                    t.UpdateRental();
-                }
+                cout << "\tLua Chon Khong Phu Hop! Vui Long Nhap Lai!\n";
+                cout << "\tNhap lua chon: ";
+                cin >> cmp;
             }
-
-            system("pause");
-        }
-        break;
-        case 6:
-        {
-            system("cls");
-            tmp = t;
-            t.MergeSort(tmp, 0, tmp.getLength() - 1, ASC);
-            set_color(7);
-            tmp.ShowMotoUser();
-            system("pause");
-        }
-        break;
-        case 7:
-        {
-            system("cls");
-            tmp = t;
-            t.MergeSort(tmp, 0, tmp.getLength() - 1, DESC);
-            set_color(7);
-            tmp.ShowMotoUser();
-            system("pause");
+            switch (cmp)
+            {
+            case 1:
+            {
+                system("cls");
+                set_color(7);
+                tmp = t;
+                t.MergeSort(tmp, 0, tmp.getLength() - 1, ASC);
+                set_color(7);
+                tmp.ShowMotoUser();
+                system("pause");
+            }
+            break;
+            case 2:
+            {
+                system("cls");
+                tmp = t;
+                t.MergeSort(tmp, 0, tmp.getLength() - 1, DESC);
+                set_color(7);
+                tmp.ShowMotoUser();
+                system("pause");
+            }
+            break;
+            case 0:
+                break;
+            default:
+                break;
+            }
         }
         break;
         case 0:
@@ -715,7 +597,7 @@ void ShowUser(List &t)
         default:
             break;
         }
-    }while (cmt != 0);
+    } while (cmt != 0);
 }
 
 int main()
