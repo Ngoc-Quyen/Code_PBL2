@@ -15,7 +15,6 @@ void ThueXe::Show()
     this->Per.Show();
     this->Moto.Show();
     this->DateRetal.ShowRental();
-    // this->DateRetal.ShowReturn(this->Number);
     this->DateReturn.ShowReturn(this->Number);
 
     if (this->GetMoney() > 0)

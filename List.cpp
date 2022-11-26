@@ -121,11 +121,53 @@ void List::ShowBike()
     else
     {
         cout << "\tDanh sach xe trong he thong\n";
+cout << char(213);
+    for (int i = 0; i <= 119; i++)
+    {
+        if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 || i == 120)
+        {
+            cout << char(209);
+        }
+        cout << char(205);
+    }
+    cout << char(184) << endl;
+    char _char = char(179);
+    cout << _char << setw(20) << "TEN XE        ";
+    cout << _char << setw(20) << "BIEN SO XE     ";
+    cout << _char << setw(20) << "PHAN KHOI     ";
+    cout << _char << setw(20) << "MAU SAC      ";
+    cout << _char << setw(20) << "GIA         ";
+    cout << _char << setw(20) << "TINH TRANG XE    ";
+    cout << _char << endl;
+    cout << char(198);
+
+    for (int i = 0; i <= 119; i++)
+    {
+
+        if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 || i == 120)
+        {
+            cout << char(216);
+        }
+        cout << char(205);
+    }
+    cout << char(181) << endl;
         for (int i = 0; i < this->len; i++)
         {
-            cout << "Motobike " << i + 1 << ":\n";
-            (*(p + i)).Moto.Show();
+            // cout << "Motobike " << i + 1 << ":\n";
+            (*(p + i)).Moto.showTable();
         }
+        cout << char(212);
+
+        for (int i = 0; i <= 119; i++)
+        {
+
+            if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 || i == 120)
+            {
+                cout << char(207);
+            }
+            cout << char(205);
+        }
+        cout << char(190) << endl;
     }
 }
 Date getTimeNow()
@@ -141,9 +183,10 @@ void List::UpdateRental()
     int cmp = 0;
     cout << "---------------------------------------\n";
     cout << "Chao Mung Ban Den Voi Dich Vu Thue Xe\n";
-    cout << "\tMotobike 1: \n";
+    this->ShowMotoUser();
+    // cout << "\tMotobike 1: \n";
     string bs;
-    cout << "Nhap bien so xe muon thue: ";
+    cout << "Nhap Bien So Xe Muon Thue: ";
     cin >> bs;
     int k = indexOf(bs);
     if ((this->p + k)->Moto.getIsRend() != 1 && k >= 0 && k < this->len)
@@ -155,7 +198,7 @@ void List::UpdateRental()
             Date d1;
             d1 = getTimeNow();
             (*(this->p + k)).DateRetal = d1;
-            cout << "Nhap so ngay muon thue: ";
+            cout << "Nhap So Ngay Muon Thue: ";
             cin >> (this->p + k)->Number;
             (*(this->p + k)).Moto.setIsRend(1);
             system("cls");
@@ -166,31 +209,31 @@ void List::UpdateRental()
         {
             Person p;
             (this->p + k)->Per = p;
-            cout << "\tBan dang thue mot xe khac trong he thong\n";
+            cout << "\tBan Dang Thue Mot Xe Khac Trong He Thong\n";
         }
     }
     else
     {
         do
         {
-            cout << "\tXe da duoc nguoi khac thue hoac khong co trong he thong\n";
+            cout << "\tXe Da Duoc Nguoi Khac Thue Hoac Khong Co Trong He Thong\n";
             cmp = 1;
-            cout << "Ban co muon thue xe khac khong? y/n\n";
+            cout << "Ban Co MUon Thue Xe Khac Khong? y/n\n";
             char ch;
-            cout << "Nhap lua chon: ";
+            cout << "Nhap Lua Chon: ";
             cin >> ch;
             if (ch == 'n')
             {
-                cout << "Cam on quy khach\n";
+                cout << "CAM ON QUY KHACH\n";
                 cmp = 0;
             }
 
             else
             {
 
-                cout << "\tMotobike 1: \n";
+                // cout << "\tMotobike 1: \n";
                 string bs;
-                cout << "Nhap bien so xe muon thue: ";
+                cout << "Nhap Bien So Xe Muon Thue: ";
                 cin >> bs;
                 int k = indexOf(bs);
                 if ((this->p + k)->Moto.getIsRend() != 1 && k >= 0 && k < this->len)
@@ -202,7 +245,7 @@ void List::UpdateRental()
                         Date d1;
                         d1 = getTimeNow();
                         (*(this->p + k)).DateRetal = d1;
-                        cout << "Nhap so ngay muon thue: ";
+                        cout << "Nhap So Ngay Muon Thue: ";
                         cin >> (this->p + k)->Number;
                         (*(this->p + k)).Moto.setIsRend(1);
                         system("cls");
@@ -213,7 +256,7 @@ void List::UpdateRental()
                     {
                         Person p;
                         (this->p + k)->Per = p;
-                        cout << "\tBan dang thue mot xe khac trong he thong\n";
+                        cout << "\tBan Dang Thue Mot Xe Khac Trong He Thong\n";
                     }
                 }
             }
@@ -312,15 +355,58 @@ void List::ShowMotoUser()
     {
         cout << "------Danh sach xe chua thue trong he thong------\n";
         int j = 1;
+        cout << char(213);
+        for (int i = 0; i <= 119; i++)
+        {
+
+            if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 || i == 120)
+            {
+                cout << char(209);
+            }
+            cout << char(205);
+        }
+        cout << char(184) << endl;
+        char _char = char(179);
+        cout << _char << setw(20) << "TEN XE        ";
+        cout << _char << setw(20) << "BIEN SO XE     ";
+        cout << _char << setw(20) << "PHAN KHOI     ";
+        cout << _char << setw(20) << "MAU SAC      ";
+        cout << _char << setw(20) << "GIA         ";
+        cout << _char << setw(20) << "TINH TRANG XE    ";
+        cout << _char << endl;
+        cout << char(198);
+
+        for (int i = 0; i <= 119; i++)
+        {
+
+            if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 || i == 120)
+            {
+                cout << char(216);
+            }
+            cout << char(205);
+        }
+        cout << char(181) << endl;
         for (int i = 0; i < this->len; i++)
         {
             if (!(*(this->p + i)).Moto.getIsRend())
             {
-                cout << "Motobike " << j << ":" << endl;
-                (*(this->p + i)).Moto.Show();
+                // cout << "Motobike " << j << ":" << endl;
+                // (*(this->p + i)).Moto.Show();
+                (*(this->p + i)).Moto.showTable();
                 j++;
             }
         }
+        cout << char(212);
+        for (int i = 0; i <= 119; i++)
+        {
+
+            if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 || i == 120)
+            {
+                cout << char(207);
+            }
+            cout << char(205);
+        }
+        cout << char(190) << endl;
     }
 }
 void List::ShowCustomer()
@@ -365,7 +451,8 @@ void List::FindUser(string Bienso, int &q)
         {
             q = 1;
             cout << "Thong Tin Motobike: \n";
-            (*(this->p + k)).Moto.Show();
+            // (*(this->p + k)).Moto.Show();
+            (*(this->p + k)).Moto.Show1();
         }
         if (q == 0)
             cout << "Xe Da Duoc Thue! Quy Khach Vui Long Chon Xe Khac\n";
@@ -387,8 +474,7 @@ void List::FindUser(int phankhoi, int &q)
             if (phankhoi == (*(this->p + i)).Moto.getPhanKhoi())
             {
                 q = 1;
-                cout << "Thong Tin Motobike " << i + 1 << endl;
-                (*(this->p + i)).Moto.Show();
+                (*(this->p + i)).Moto.Show1();
             }
         }
     }
@@ -480,20 +566,20 @@ void List::UpdateAfter(string bs)
 {
     int k = indexOf(bs);
     if (k == -1)
-                cout << "Xe Khong Co Trong He Thong! Vui Long Kiem Tra Lai!\n";
-            else
-            {
-                if ((*(this->p + k)).Moto.getIsRend() != 0)
-                {
-                    Date d = getTimeNow();
-                    (*(this->p + k)).DateReturn = d;
-                    // (*(this->p + k)).ShowBill();
-                    Clear(*(this->p + k));
-                    (*(this->p + k)).Moto.setIsRend(0);
-                }
-                else
-                    cout << "Xe Co Trong He Thong Va Chua Duoc Thue!\n";
-            }
+        cout << "Xe Khong Co Trong He Thong! Vui Long Kiem Tra Lai!\n";
+    else
+    {
+        if ((*(this->p + k)).Moto.getIsRend() != 0)
+        {
+            Date d = getTimeNow();
+            (*(this->p + k)).DateReturn = d;
+            // (*(this->p + k)).ShowBill();
+            Clear(*(this->p + k));
+            (*(this->p + k)).Moto.setIsRend(0);
+        }
+        else
+            cout << "Xe Co Trong He Thong Va Chua Duoc Thue!\n";
+    }
 }
 void List::Clear(ThueXe &tra)
 {
@@ -537,11 +623,12 @@ void List::ShowRented()
             if ((*(this->p + i)).Moto.getIsRend())
             {
                 cout << "Customer " << j << endl;
-                (*(this->p + i)).Show();
+                
+                    (*(this->p + i)).Show();
                 j++;
             }
         }
-        if (j == 1) 
+        if (j == 1)
         {
             cout << "\tChua Co Khach Thue\n";
         }
@@ -556,7 +643,7 @@ void List::UpdatePrice(string bienso)
     (this->p + k)->Moto.setGia(n);
     cout << "\n------Cap Nhat Thanh Cong------\n";
 }
-void List::Merge(List &t, int l, int m, int r, bool (*TypeSort)(int, int) )
+void List::Merge(List &t, int l, int m, int r, bool (*TypeSort)(int, int))
 {
     int n1 = m - l + 1;
     int n2 = r - m;

@@ -1,7 +1,7 @@
 #include "Date.h"
 
 Date::Date(int d, int m, int y) : day(d), month(m), year(y) {}
-Date::Date(const Date&d)
+Date::Date(const Date &d)
 {
     Date(d.day, d.month, d.year);
 }
@@ -10,7 +10,7 @@ void Date::setDay(int d)
 {
     this->day = d;
 }
-int Date::getDay() 
+int Date::getDay()
 {
     return this->day;
 }
@@ -30,9 +30,9 @@ int Date::getYear()
 {
     return this->year;
 }
-istream& operator >> (istream& in, Date& d)
+istream &operator>>(istream &in, Date &d)
 {
-    cout << "Nhap lan luot ngay, thang, nam: "; 
+    cout << "Nhap lan luot ngay, thang, nam: ";
     in >> d.day >> d.month >> d.year;
     while (d.month < 1 || d.month > 12)
     {
@@ -40,7 +40,7 @@ istream& operator >> (istream& in, Date& d)
         cout << "Nhap lai thang: ";
         in >> d.month;
     }
-    while (d.day > d.DayMonth()) 
+    while (d.day > d.DayMonth())
     {
         cout << "Nhap ngay sai roi kia thang ngu\n";
         cout << "Nhap lai ngay: ";
@@ -48,7 +48,7 @@ istream& operator >> (istream& in, Date& d)
     }
     return in;
 }
-ostream& operator << (ostream& out, Date d)
+ostream &operator<<(ostream &out, Date d)
 {
     cout << "Ngay: " << d.getDay() << d.getMonth() << d.getYear() << endl;
     return out;
@@ -60,7 +60,26 @@ void Date::ShowRental()
     // this->setDay(dt->tm_mday);
     // this->setMonth(dt->tm_mon + 1);
     // this->setYear(dt->tm_year + 1900);
-    
+
+    // if (this->year != 0)
+    // {
+    //     char _char = char(179);
+    //     cout << _char << setw(12) << this->day << "/" << this->month << "/" << this->year;
+
+    //     cout << _char << endl
+    //          << char(195);
+    //     for (int i = 201; i <= 221; i++)
+    //     {
+
+    //         if (i == 222) 
+    //         {
+    //             cout << char(197);
+    //         }
+    //         cout << char(196);
+    //     }
+    //     cout << char(180) << endl;
+    // }
+
     if (this->year != 0)
         cout << "\tNgay thue: " << this->day << "/" << this->month << "/" << this->year << endl;
 }
@@ -77,6 +96,24 @@ void Date::ShowReturn(int number)
         this->NextDay();
     if (this->year != 0)
         cout << "\tNgay tra: " << this->day << "/" << this->month << "/" << this->year << endl;
+    //  if (this->year != 0)
+    // {
+    //     char _char = char(179);
+    //     cout << _char << setw(12) << this->day << "/" << this->month << "/" << this->year;
+
+    //     cout << _char << endl
+    //          << char(195);
+    //     for (int i = 222; i <= 241; i++)
+    //     {
+
+    //         if (i == 242) 
+    //         {
+    //             cout << char(197);
+    //         }
+    //         cout << char(196);
+    //     }
+    //     cout << char(180) << endl;
+    // }
 }
 // Date Date::getTimeReturn(int number)
 // {
@@ -84,23 +121,25 @@ void Date::ShowReturn(int number)
 //         this->NextDay();
 //     Date d(this->day, this->month, this->year);
 //     return d;
-    
+
 // }
 bool Date::IsYear(int y)
 {
-    if (y % 400 == 0) return true;
-    else 
-        if (y % 100 != 0 && y % 4 == 0) return true;
-        else return false;
+    if (y % 400 == 0)
+        return true;
+    else if (y % 100 != 0 && y % 4 == 0)
+        return true;
+    else
+        return false;
 }
 int Date::DayMonth()
 {
     if (this->IsYear(this->year) && this->month == 2)
         return 29;
-    else 
+    else
         switch (this->month)
         {
-        case 2: 
+        case 2:
             return 28;
             break;
         case 1:
@@ -136,31 +175,35 @@ void Date::NextDay()
             d = 1;
             m = this->month + 1;
         }
-        else 
-            if (this->month == 12 && this->day == this->DayMonth())
+        else if (this->month == 12 && this->day == this->DayMonth())
+        {
+            d = 1;
+            y = this->year + 1;
+            m = 1;
+        }
+        else if (this->month == 2)
+        {
+            if (this->IsYear(this->year))
             {
-                d = 1;
-                y = this->year + 1;
-                m = 1;
-            }
-            else 
-                if(this->month == 2)
+                if (this->day == 29)
                 {
-                    if(this->IsYear(this->year))
-                    {
-                        if (this->day == 29)
-                        {
-                            d = 1;
-                            m = this->month + 1;
-                        }
-                    }
-                    else 
-                        if (this->day == 28)
-                            d = 1;
-                            m = this->month + 1;
-                }            
+                    d = 1;
+                    m = this->month + 1;
+                }
+            }
+            else if (this->day == 28)
+                d = 1;
+            m = this->month + 1;
+        }
     }
     this->setDay(d);
     this->setMonth(m);
     this->setYear(y);
 }
+// int main()
+// {
+//     Date d;
+//     cin >> d;
+//     d.ShowRental();
+//     return 0;
+// }

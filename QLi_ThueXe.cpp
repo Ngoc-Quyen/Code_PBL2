@@ -459,7 +459,7 @@ void ShowUser(List &t)
         {
             set_color(7);
             system("cls");
-            t.ShowMotoUser();
+            
             t.UpdateRental();
             system("pause");
         }

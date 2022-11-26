@@ -1,18 +1,18 @@
 3
-Quin1
-20
+ngoc quyen
+2003
 11001
 0999001
-dc1
+quang nam
 2
-Quin2
-20
+nguyen van a
+2002
 11002
 0999002
 dc2
 3
-Quin3
-20
+le thi b
+2001
 11003
 0999003
 dc3

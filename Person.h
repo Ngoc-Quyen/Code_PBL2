@@ -27,5 +27,6 @@ class Person
         void Show();
         friend istream& operator >> (istream&, Person&);
         friend ostream& operator << (ostream&, Person);
-        
+        void showTable();
+        void Show1();
 };

@@ -98,3 +98,76 @@ ostream &operator<<(ostream &out, Motobike moto)
     else
         cout << "Chua thue\n";
 }
+
+
+void Motobike::showTable()
+{
+    char _char = char(179);
+    cout << _char << setw(20) << this->NameBike + " ";
+    cout << _char << setw(20) << this->BienSo + "  ";
+    cout << _char << setw(18) << this->PhanKhoi << "CC";
+    cout << _char << setw(20) << this->Mau + "  ";
+    cout << _char << setw(17) << this->Gia << "VND";
+    if (this->getIsRend() != 0) cout <<  _char << setw(20) << "Da thue  ";
+    else cout << _char << setw(20) << "Chua thue  ";
+
+    cout << _char << endl
+         << char(195);
+    for (int i = 0; i <= 119; i++)
+    {
+
+        if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 || i == 120) //|| i == 116 || i == 136)
+        {
+            cout << char(197);
+        }
+        cout << char(196);
+    }
+    cout << char(180) << endl;
+}
+
+void Motobike::Show1()
+{
+    cout << char(213);
+    for (int i = 0; i <= 119; i++)
+    {
+        if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 || i == 120)
+        {
+            cout << char(209);
+        }
+        cout << char(205);
+    }
+    cout << char(184) << endl;
+    char _char = char(179);
+    cout << _char << setw(20) << "TEN XE        ";
+    cout << _char << setw(20) << "BIEN SO XE     ";
+    cout << _char << setw(20) << "PHAN KHOI     ";
+    cout << _char << setw(20) << "MAU SAC      ";
+    cout << _char << setw(20) << "GIA         ";
+    cout << _char << setw(20) << "TINH TRANG XE    ";
+    cout << _char << endl;
+    cout << char(198);
+
+    for (int i = 0; i <= 119; i++)
+    {
+
+        if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 || i == 120)
+        {
+            cout << char(216);
+        }
+        cout << char(205);
+    }
+    cout << char(181) << endl;
+        this->showTable();
+    cout << char(212);
+
+    for (int i = 0; i <= 119; i++)
+    {
+
+        if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 || i == 120)
+        {
+            cout << char(207);
+        }
+        cout << char(205);
+    }
+    cout << char(190) << endl;
+}

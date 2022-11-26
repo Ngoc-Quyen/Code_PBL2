@@ -50,7 +50,7 @@ void Person::Show()
     if (this->getAge() != 0)
     {
         cout << "\tTen khach hang: " << this->Name << endl;
-        cout << "\tTuoi: " << this->Age << endl;
+        cout << "\tNam Sinh: " << this->Age << endl;
         cout << "\tSo CMND/Ho chieu: " << this->CMND << endl;
         cout << "\tSo dien thoai: " << this->SDT << endl;
         cout << "\tDia chi: " << this->Add << endl;
@@ -60,7 +60,7 @@ istream &operator>>(istream &in, Person &p)
 {
     cout << "Nhap Ten khach hang: ";
     getline(in, p.Name);
-    cout << "Nhap Tuoi: ";
+    cout << "Nhap Nam Sinh: ";
     in >> p.Age;
     cout << "Nhap So CMND/Ho chieu: ";
     in.ignore();
@@ -75,8 +75,85 @@ istream &operator>>(istream &in, Person &p)
 ostream &operator<<(ostream &out, Person p)
 {
     cout << "\tTen khach hang: " << p.getName() << endl;
-    cout << "\tTuoi: " << p.getAge() << endl;
+    cout << "\tNam Sinh: " << p.getAge() << endl;
     cout << "\tSo CMND/Ho chieu: " << p.getCMND() << endl;
     cout << "\tSo dien thoai: " << p.getSDT() << endl;
     cout << "\tDia chi: " << p.getAdd() << endl;
 }
+void Person::showTable()
+{
+    char _char = char(179);
+    cout << _char << setw(20) << this->Name + " ";
+    cout << _char << setw(20) << this->Age;
+    cout << _char << setw(20) << this->CMND + "  ";
+    cout << _char << setw(20) << this->SDT + "  ";
+    cout << _char << setw(20) << this->Add;
+
+    cout << _char << endl
+         << char(195);
+    for (int i = 0; i <= 99; i++)
+    {
+
+        if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 ) 
+        {
+            cout << char(197);
+        }
+        cout << char(196);
+    }
+    cout << char(180) << endl;
+}
+void Person::Show1()
+{
+    cout << char(213);
+    for (int i = 0; i <= 99; i++)
+    {
+
+        if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 )
+        {
+            cout << char(209);
+        }
+        cout << char(205);
+    }
+    cout << char(184) << endl;
+    char _char = char(179);
+    cout << _char << setw(20) << "TEN KHACH HANG  ";
+    cout << _char << setw(20) << "NAM SINH     ";
+    cout << _char << setw(20) << "SO CMND/HO CHIEU  ";
+    cout << _char << setw(20) << "SO DIEN THOAI   ";
+    cout << _char << setw(20) << "DIA CHI           ";
+    cout << _char << endl;
+    cout << char(198);
+
+    for (int i = 0; i <= 99; i++)
+    {
+
+        if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100)
+        {
+            cout << char(216);
+        }
+        cout << char(205);
+    }
+    cout << char(181) << endl;
+        this->showTable();
+    cout << char(212);
+
+    for (int i = 0; i <= 99; i++)
+    {
+
+        if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100)
+        {
+            cout << char(207);
+        }
+        cout << char(205);
+    }
+    cout << char(190) << endl;
+}
+
+// int main()
+// {
+//     Person m1;
+//     cin >> m1;
+//     // m1.showTable();
+//     m1.Show1();
+//     return 0;
+// }
