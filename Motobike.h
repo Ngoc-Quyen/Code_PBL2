@@ -30,6 +30,8 @@ class Motobike
         friend istream& operator >> (istream&, Motobike&);
         friend ostream& operator << (ostream&, Motobike);
         void showTable();
-        void Show1();        
+        void Show1();    
+        void ShowTB();    
+        void ShowTB1();
 
 };

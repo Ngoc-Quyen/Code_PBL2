@@ -121,36 +121,36 @@ void List::ShowBike()
     else
     {
         cout << "\tDanh sach xe trong he thong\n";
-cout << char(213);
-    for (int i = 0; i <= 119; i++)
-    {
-        if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 || i == 120)
+        cout << char(213);
+        for (int i = 0; i <= 119; i++)
         {
-            cout << char(209);
+            if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 || i == 120)
+            {
+                cout << char(209);
+            }
+            cout << char(205);
         }
-        cout << char(205);
-    }
-    cout << char(184) << endl;
-    char _char = char(179);
-    cout << _char << setw(20) << "TEN XE        ";
-    cout << _char << setw(20) << "BIEN SO XE     ";
-    cout << _char << setw(20) << "PHAN KHOI     ";
-    cout << _char << setw(20) << "MAU SAC      ";
-    cout << _char << setw(20) << "GIA         ";
-    cout << _char << setw(20) << "TINH TRANG XE    ";
-    cout << _char << endl;
-    cout << char(198);
+        cout << char(184) << endl;
+        char _char = char(179);
+        cout << _char << setw(20) << "TEN XE        ";
+        cout << _char << setw(20) << "BIEN SO XE     ";
+        cout << _char << setw(20) << "PHAN KHOI     ";
+        cout << _char << setw(20) << "MAU SAC      ";
+        cout << _char << setw(20) << "GIA         ";
+        cout << _char << setw(20) << "TINH TRANG XE    ";
+        cout << _char << endl;
+        cout << char(198);
 
-    for (int i = 0; i <= 119; i++)
-    {
-
-        if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 || i == 120)
+        for (int i = 0; i <= 119; i++)
         {
-            cout << char(216);
+
+            if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 || i == 120)
+            {
+                cout << char(216);
+            }
+            cout << char(205);
         }
-        cout << char(205);
-    }
-    cout << char(181) << endl;
+        cout << char(181) << endl;
         for (int i = 0; i < this->len; i++)
         {
             // cout << "Motobike " << i + 1 << ":\n";
@@ -623,8 +623,8 @@ void List::ShowRented()
             if ((*(this->p + i)).Moto.getIsRend())
             {
                 cout << "Customer " << j << endl;
-                
-                    (*(this->p + i)).Show();
+
+                (*(this->p + i)).Show();
                 j++;
             }
         }
@@ -638,10 +638,20 @@ void List::UpdatePrice(string bienso)
 {
     int n;
     int k = indexOf(bienso);
-    cout << "Nhap Gia Xe Muon Cap Nhat: ";
-    cin >> n;
-    (this->p + k)->Moto.setGia(n);
-    cout << "\n------Cap Nhat Thanh Cong------\n";
+    if (k != -1)
+    {
+        if ((this->p + k)->Moto.getIsRend())
+            cout << "\n----Xe Dang Duoc Thue! Khong Thue Cap Nhat Gia!----\n";
+        else
+        {
+            cout << "Nhap Gia Xe Muon Cap Nhat: ";
+            cin >> n;
+            (this->p + k)->Moto.setGia(n);
+            cout << "\n------Cap Nhat Thanh Cong------\n";
+        }
+    }
+    else
+        cout << "\n------Xe Khong Co Trong He Thong! Vui Long Kiem Tra Lai!------\n";
 }
 void List::Merge(List &t, int l, int m, int r, bool (*TypeSort)(int, int))
 {
