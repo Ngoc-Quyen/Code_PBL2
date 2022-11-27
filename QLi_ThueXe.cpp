@@ -278,6 +278,7 @@ void ShowAdmin(List &t)
             case 2:
             {
                 system("cls");
+                cout << "\t--------Danh Sach Xe Chua Duoc Thue Trong He Thong--------\n";
                 t.ShowMotoUser();
                 system("pause");
             }
@@ -451,6 +452,7 @@ void ShowUser(List &t)
         {
             set_color(7);
             system("cls");
+                cout << "\t--------Danh Sach Xe Chua Duoc Thue Trong He Thong--------\n";
             t.ShowMotoUser();
             system("pause");
         }

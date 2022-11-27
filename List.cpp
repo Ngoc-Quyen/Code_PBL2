@@ -181,8 +181,7 @@ void List::UpdateRental()
 {
     system("cls");
     int cmp = 0;
-    cout << "---------------------------------------\n";
-    cout << "Chao Mung Ban Den Voi Dich Vu Thue Xe\n";
+    cout << "\t\t-----------Chao Mung Ban Den Voi Dich Vu Thue Xe-----------\n\n";
     this->ShowMotoUser();
     // cout << "\tMotobike 1: \n";
     string bs;
@@ -353,13 +352,12 @@ void List::ShowMotoUser()
     }
     else
     {
-        cout << "------Danh sach xe chua thue trong he thong------\n";
+        // cout << "------Danh sach xe chua thue trong he thong------\n";
         int j = 1;
         cout << char(213);
-        for (int i = 0; i <= 119; i++)
+        for (int i = 0; i <= 99; i++)
         {
-
-            if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 || i == 120)
+            if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100)
             {
                 cout << char(209);
             }
@@ -372,14 +370,12 @@ void List::ShowMotoUser()
         cout << _char << setw(20) << "PHAN KHOI     ";
         cout << _char << setw(20) << "MAU SAC      ";
         cout << _char << setw(20) << "GIA         ";
-        cout << _char << setw(20) << "TINH TRANG XE    ";
         cout << _char << endl;
         cout << char(198);
 
-        for (int i = 0; i <= 119; i++)
+        for (int i = 0; i <= 99; i++)
         {
-
-            if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 || i == 120)
+            if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100)
             {
                 cout << char(216);
             }
@@ -392,15 +388,14 @@ void List::ShowMotoUser()
             {
                 // cout << "Motobike " << j << ":" << endl;
                 // (*(this->p + i)).Moto.Show();
-                (*(this->p + i)).Moto.showTable();
+                (*(this->p + i)).Moto.ShowTB();
                 j++;
             }
         }
         cout << char(212);
-        for (int i = 0; i <= 119; i++)
+        for (int i = 0; i <= 99; i++)
         {
-
-            if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 || i == 120)
+            if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100)
             {
                 cout << char(207);
             }
@@ -452,7 +447,7 @@ void List::FindUser(string Bienso, int &q)
             q = 1;
             cout << "Thong Tin Motobike: \n";
             // (*(this->p + k)).Moto.Show();
-            (*(this->p + k)).Moto.Show1();
+            (*(this->p + k)).Moto.ShowTB1();
         }
         if (q == 0)
             cout << "Xe Da Duoc Thue! Quy Khach Vui Long Chon Xe Khac\n";
@@ -474,7 +469,7 @@ void List::FindUser(int phankhoi, int &q)
             if (phankhoi == (*(this->p + i)).Moto.getPhanKhoi())
             {
                 q = 1;
-                (*(this->p + i)).Moto.Show1();
+                (*(this->p + i)).Moto.ShowTB1();
             }
         }
     }
