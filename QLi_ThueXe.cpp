@@ -259,7 +259,7 @@ void ShowAdmin(List &t)
             cout << "\t\t0. Thoat\n";
             cout << "\tNhap lua chon: ";
             cin >> cmp;
-            while (cmp <0 || cmp > 3)
+            while (cmp < 0 || cmp > 3)
             {
                 cout << "\t\tLua Chon Khong Phu Hop! Vui Long Nhap Lai!\n";
                 cout << "\tNhap lua chon: ";
@@ -343,7 +343,7 @@ void ShowAdmin(List &t)
             }
             break;
             case 0:
-            break;
+                break;
             default:
                 break;
             }
@@ -400,7 +400,6 @@ void ShowAdmin(List &t)
             cin >> bs;
             t.UpdateDateRental(bs);
             system("pause");
-            
         }
         break;
         case 12:
@@ -416,7 +415,7 @@ void ShowAdmin(List &t)
             system("pause");
         }
         break;
-        
+
         case 0:
             break;
         default:
@@ -452,7 +451,7 @@ void ShowUser(List &t)
         {
             set_color(7);
             system("cls");
-                cout << "\t--------Danh Sach Xe Chua Duoc Thue Trong He Thong--------\n";
+            cout << "\t--------Danh Sach Xe Chua Duoc Thue Trong He Thong--------\n";
             t.ShowMotoUser();
             system("pause");
         }
@@ -461,7 +460,7 @@ void ShowUser(List &t)
         {
             set_color(7);
             system("cls");
-            
+
             t.UpdateRental();
             system("pause");
         }

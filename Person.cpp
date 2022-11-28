@@ -84,10 +84,10 @@ void Person::showTable()
 {
     char _char = char(179);
     cout << _char << setw(20) << this->Name + " ";
-    cout << _char << setw(20) << this->Age;
-    cout << _char << setw(20) << this->CMND + "  ";
-    cout << _char << setw(20) << this->SDT + "  ";
-    cout << _char << setw(20) << this->Add;
+    cout << _char << setw(19) << this->Age << " ";
+    cout << _char << setw(20) << this->CMND + " ";
+    cout << _char << setw(20) << this->SDT + " ";
+    cout << _char << setw(20) << this->Add + " ";
 
     cout << _char << endl
          << char(195);

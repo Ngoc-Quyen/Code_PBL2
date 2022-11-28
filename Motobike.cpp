@@ -104,12 +104,12 @@ void Motobike::showTable()
 {
     char _char = char(179);
     cout << _char << setw(20) << this->NameBike + " ";
-    cout << _char << setw(20) << this->BienSo + "  ";
-    cout << _char << setw(18) << this->PhanKhoi << "CC";
-    cout << _char << setw(20) << this->Mau + "  ";
-    cout << _char << setw(17) << this->Gia << "VND";
-    if (this->getIsRend() != 0) cout <<  _char << setw(20) << "Da thue  ";
-    else cout << _char << setw(20) << "Chua thue  ";
+    cout << _char << setw(20) << this->BienSo + " ";
+    cout << _char << setw(19) << this->PhanKhoi << " ";
+    cout << _char << setw(20) << this->Mau + " ";
+    cout << _char << setw(19) << this->Gia << " ";
+    if (this->getIsRend() != 0) cout <<  _char << setw(20) << "Da thue ";
+    else cout << _char << setw(20) << "Chua thue ";
 
     cout << _char << endl
          << char(195);
@@ -140,9 +140,9 @@ void Motobike::Show1()
     char _char = char(179);
     cout << _char << setw(20) << "TEN XE        ";
     cout << _char << setw(20) << "BIEN SO XE     ";
-    cout << _char << setw(20) << "PHAN KHOI     ";
+    cout << _char << setw(20) << "PHAN KHOI(CC)  ";
     cout << _char << setw(20) << "MAU SAC      ";
-    cout << _char << setw(20) << "GIA         ";
+    cout << _char << setw(20) << "GIA(VND)      ";
     cout << _char << setw(20) << "TINH TRANG XE    ";
     cout << _char << endl;
     cout << char(198);
@@ -175,10 +175,10 @@ void Motobike::ShowTB()
 {
     char _char = char(179);
     cout << _char << setw(20) << this->NameBike + " ";
-    cout << _char << setw(20) << this->BienSo + "  ";
-    cout << _char << setw(18) << this->PhanKhoi << "CC";
-    cout << _char << setw(20) << this->Mau + "  ";
-    cout << _char << setw(17) << this->Gia << "VND";
+    cout << _char << setw(20) << this->BienSo + " ";
+    cout << _char << setw(19) << this->PhanKhoi << " ";
+    cout << _char << setw(20) << this->Mau + " ";
+    cout << _char << setw(19) << this->Gia << " ";
 
     cout << _char << endl
          << char(195);
@@ -207,9 +207,9 @@ void Motobike::ShowTB1()
     char _char = char(179);
     cout << _char << setw(20) << "TEN XE        ";
     cout << _char << setw(20) << "BIEN SO XE     ";
-    cout << _char << setw(20) << "PHAN KHOI     ";
+    cout << _char << setw(20) << "PHAN KHOI(CC)  ";
     cout << _char << setw(20) << "MAU SAC      ";
-    cout << _char << setw(20) << "GIA         ";
+    cout << _char << setw(20) << "GIA(VND)     ";
     cout << _char << endl;
     cout << char(198);
 

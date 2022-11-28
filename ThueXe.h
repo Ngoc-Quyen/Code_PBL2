@@ -23,4 +23,6 @@ class ThueXe
         ThueXe& operator = (const ThueXe&);
         //ThueXe& operator () (const ThueXe&);
         friend class List;
+        void ShowTB();
+        void ShowTB1();
 };

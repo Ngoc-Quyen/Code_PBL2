@@ -25,5 +25,6 @@ class Date
         void ShowReturn(int );
         Date getTimeNow();
         Date getTimeReturn(int);
+        string getDate();
 
 };

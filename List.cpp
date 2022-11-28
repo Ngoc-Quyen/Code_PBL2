@@ -134,9 +134,9 @@ void List::ShowBike()
         char _char = char(179);
         cout << _char << setw(20) << "TEN XE        ";
         cout << _char << setw(20) << "BIEN SO XE     ";
-        cout << _char << setw(20) << "PHAN KHOI     ";
+        cout << _char << setw(20) << "PHAN KHOI(CC)  ";
         cout << _char << setw(20) << "MAU SAC      ";
-        cout << _char << setw(20) << "GIA         ";
+        cout << _char << setw(20) << "GIA(VND)      ";
         cout << _char << setw(20) << "TINH TRANG XE    ";
         cout << _char << endl;
         cout << char(198);
@@ -367,9 +367,9 @@ void List::ShowMotoUser()
         char _char = char(179);
         cout << _char << setw(20) << "TEN XE        ";
         cout << _char << setw(20) << "BIEN SO XE     ";
-        cout << _char << setw(20) << "PHAN KHOI     ";
+        cout << _char << setw(20) << "PHAN KHOI(CC)   ";
         cout << _char << setw(20) << "MAU SAC      ";
-        cout << _char << setw(20) << "GIA         ";
+        cout << _char << setw(20) << "GIA(VND)     ";
         cout << _char << endl;
         cout << char(198);
 
@@ -613,16 +613,59 @@ void List::ShowRented()
     {
         cout << "\tDanh Sach Xe Va Tinh Trang Trong He Thong\n";
         int j = 1;
+        cout << char(213);
+        for (int i = 0; i <= 164; i++)
+        {
+            if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165)
+            {
+                cout << char(209);
+            }
+            cout << char(205);
+        }
+        cout << char(184) << endl;
+        char _char = char(179);
+        cout << _char << setw(25) << "TEN KHACH HANG  ";
+        cout << _char << setw(20) << "SO CMND/HO CHIEU  ";
+        cout << _char << setw(20) << "SO DIEN THOAI   ";
+        cout << _char << setw(20) << "TEN XE        ";
+        cout << _char << setw(20) << "BIEN SO XE     ";
+        cout << _char << setw(20) << "GIA(VND)    ";
+        cout << _char << setw(20) << "NGAY THUE    ";
+        cout << _char << setw(20) << "SO NGAY THUE   ";
+
+        cout << _char << endl;
+        cout << char(198);
+        for (int i = 0; i <= 164; i++)
+        {
+            if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165)
+            {
+                cout << char(216);
+            }
+            cout << char(205);
+        }
+        cout << char(181) << endl;
         for (int i = 0; i < this->len; i++)
         {
             if ((*(this->p + i)).Moto.getIsRend())
             {
-                cout << "Customer " << j << endl;
+                // cout << "Customer " << j << endl;
 
-                (*(this->p + i)).Show();
+                // (*(this->p + i)).Show();
+                (*(this->p + i)).ShowTB();
+
                 j++;
             }
         }
+        cout << char(212);
+        for (int i = 0; i <= 164; i++)
+        {
+            if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165)
+            {
+                cout << char(207);
+            }
+            cout << char(205);
+        }
+        cout << char(190) << endl;
         if (j == 1)
         {
             cout << "\tChua Co Khach Thue\n";
