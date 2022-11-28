@@ -795,3 +795,98 @@ void List::MergeSortAdm(List &t, int l, int r, bool (*Type)(int, int))
         MergeAdm(t, l, m, r, Type);
     }
 }
+void List::StatisticOfCC()
+{
+    int cc1 = 0;
+    int cc2 = 0;
+    int cc3 = 0;
+    for (int i = 0; i < this->len; i++)
+    {
+        if ((*(this->p + i)).Moto.getPhanKhoi() <= 50)
+            cc1++;
+        if ((*(this->p + i)).Moto.getPhanKhoi() > 50 && (*(this->p + i)).Moto.getPhanKhoi() < 125)
+            cc2++;
+        if ((*(this->p + i)).Moto.getPhanKhoi() >= 125)
+            cc3++;
+    }
+    char _char = char(179);
+    cout << _char << setw(20) << "Duoi 50CC     ";
+    cout << _char << setw(11) << cc1 << "         ";
+    cout << _char << endl
+         << char(195);
+    for (int i = 0; i <= 39; i++)
+    {
+        if (i == 20 || i == 40)
+        {
+            cout << char(197);
+        }
+        cout << char(196);
+    }
+    cout << char(180) << endl;
+     _char = char(179);
+    cout << _char << setw(20) << "Tu 50CC Den 125CC ";
+    cout << _char << setw(11) << cc2 << "         ";
+    cout << _char << endl
+         << char(195);
+    for (int i = 0; i <= 39; i++)
+    {
+        if (i == 20 || i == 40)
+        {
+            cout << char(197);
+        }
+        cout << char(196);
+    }
+    cout << char(180) << endl;
+     _char = char(179);
+    cout << _char << setw(20) << "Tren 125CC     ";
+    cout << _char << setw(11) << cc3 << "         ";
+    cout << _char << endl
+         << char(195);
+    for (int i = 0; i <= 39; i++)
+    {
+        if (i == 20 || i == 40)
+        {
+            cout << char(197);
+        }
+        cout << char(196);
+    }
+    cout << char(180) << endl;
+}
+void List::ShowStatistics()
+{
+    cout << char(213);
+    for (int i = 0; i <= 39; i++)
+    {
+        if (i == 20 || i == 40)
+        {
+            cout << char(209);
+        }
+        cout << char(205);
+    }
+    cout << char(184) << endl;
+    char _char = char(179);
+    cout << _char << setw(20) << "PHAN KHOI      ";
+    cout << _char << setw(20) << "SO LUONG       ";
+    cout << _char << endl;
+    cout << char(198);
+    for (int i = 0; i <= 39; i++)
+    {
+        if (i == 20 || i == 40)
+        {
+            cout << char(216);
+        }
+        cout << char(205);
+    }
+    cout << char(181) << endl;
+    this->StatisticOfCC();
+    cout << char(212);
+    for (int i = 0; i <= 39; i++)
+    {
+        if (i == 20 || i == 40)
+        {
+            cout << char(207);
+        }
+        cout << char(205);
+    }
+    cout << char(190) << endl;
+}

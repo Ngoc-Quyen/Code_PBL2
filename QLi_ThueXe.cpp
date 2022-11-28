@@ -117,7 +117,8 @@ void MenuAdmin()
     cout << "\t\t11. Chinh sua ngay thue xe cua khach hang"
          << "\t\t\t\t\t|\t\t12. Xuat hoa don cua khach theo bien so" << endl;
     cout << endl;
-    cout << "\t\t0. Thoat che do Admin\n ";
+    cout << "\t\t13. Thong ke so luong xe theo phan khoi"
+         << "\t\t\t\t\t\t|\t\t0. Thoat che do Admin\n " << endl;
     cout << endl;
     cout << "\t------------------------------------------------------------------------"
             "----------------------------------------------------------------------------"
@@ -415,7 +416,15 @@ void ShowAdmin(List &t)
             system("pause");
         }
         break;
-
+        case 13:
+        {
+            set_color(2);
+            system("cls");
+            cout << " So Luong Xe Trong He Thong Theo Phan Khoi\n";
+            t.ShowStatistics();
+            system("pause");
+        }
+        break;
         case 0:
             break;
         default:

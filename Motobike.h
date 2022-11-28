@@ -26,7 +26,7 @@ class Motobike
         long getGia();
         void setIsRend(int);
         int getIsRend();
-        void Show();
+        void Show(); 
         friend istream& operator >> (istream&, Motobike&);
         friend ostream& operator << (ostream&, Motobike);
         void showTable();

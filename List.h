@@ -42,4 +42,7 @@ public:
     void MergeSort(List&, int, int, bool(*) (int, int));
     void MergeAdm(List&, int, int, int,  bool(*) (int, int));
     void MergeSortAdm(List&, int, int, bool(*) (int, int));
+    void StatisticOfCC();
+    void ShowStatistics();
+    // void StatisticOfIsRend();
 };
