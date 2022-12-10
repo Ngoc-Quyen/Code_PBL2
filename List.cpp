@@ -184,82 +184,85 @@ void List::UpdateRental()
     cout << "\t\t-----------Chao Mung Ban Den Voi Dich Vu Thue Xe-----------\n\n";
     this->ShowMotoUser();
     // cout << "\tMotobike 1: \n";
-    string bs;
-    cout << "Nhap Bien So Xe Muon Thue: ";
-    cin >> bs;
-    int k = indexOf(bs);
-    if ((this->p + k)->Moto.getIsRend() != 1 && k >= 0 && k < this->len)
+    if (this->len > 0)
     {
-        cin.ignore();
-        cin >> (this->p + k)->Per;
-        if (CheckCmnd((this->p + k)->Per))
+        string bs;
+        cout << "Nhap Bien So Xe Muon Thue: ";
+        cin >> bs;
+        int k = indexOf(bs);
+        if ((this->p + k)->Moto.getIsRend() != 1 && k >= 0 && k < this->len)
         {
-            Date d1;
-            d1 = getTimeNow();
-            (*(this->p + k)).DateRetal = d1;
-            cout << "Nhap So Ngay Muon Thue: ";
-            cin >> (this->p + k)->Number;
-            (*(this->p + k)).Moto.setIsRend(1);
-            system("cls");
+            cin.ignore();
+            cin >> ((this->p + k)->Per);
+            if (CheckCmnd((this->p + k)->Per))
+            {
+                Date d1;
+                d1 = getTimeNow();
+                (*(this->p + k)).DateRetal = d1;
+                cout << "Nhap So Ngay Muon Thue: ";
+                cin >> (this->p + k)->Number;
+                (*(this->p + k)).Moto.setIsRend(1);
+                system("cls");
 
-            (this->p + k)->ShowTT();
+                (this->p + k)->ShowTT();
+            }
+            else
+            {
+                Person p;
+                (this->p + k)->Per = p;
+                cout << "\tBan Dang Thue Mot Xe Khac Trong He Thong\n";
+            }
         }
         else
         {
-            Person p;
-            (this->p + k)->Per = p;
-            cout << "\tBan Dang Thue Mot Xe Khac Trong He Thong\n";
-        }
-    }
-    else
-    {
-        do
-        {
-            cout << "\tXe Da Duoc Nguoi Khac Thue Hoac Khong Co Trong He Thong\n";
-            cmp = 1;
-            cout << "Ban Co MUon Thue Xe Khac Khong? y/n\n";
-            char ch;
-            cout << "Nhap Lua Chon: ";
-            cin >> ch;
-            if (ch == 'n')
+            do
             {
-                cout << "CAM ON QUY KHACH\n";
-                cmp = 0;
-            }
-
-            else
-            {
-
-                // cout << "\tMotobike 1: \n";
-                string bs;
-                cout << "Nhap Bien So Xe Muon Thue: ";
-                cin >> bs;
-                int k = indexOf(bs);
-                if ((this->p + k)->Moto.getIsRend() != 1 && k >= 0 && k < this->len)
+                cout << "\tXe Da Duoc Nguoi Khac Thue Hoac Khong Co Trong He Thong\n";
+                cmp = 1;
+                cout << "Ban Co MUon Thue Xe Khac Khong? y/n\n";
+                char ch;
+                cout << "Nhap Lua Chon: ";
+                cin >> ch;
+                if (ch == 'n')
                 {
-                    cin.ignore();
-                    cin >> (this->p + k)->Per;
-                    if (CheckCmnd((this->p + k)->Per))
+                    cout << "CAM ON QUY KHACH\n";
+                    cmp = 0;
+                }
+
+                else
+                {
+
+                    // cout << "\tMotobike 1: \n";
+                    string bs;
+                    cout << "Nhap Bien So Xe Muon Thue: ";
+                    cin >> bs;
+                    int k = indexOf(bs);
+                    if ((this->p + k)->Moto.getIsRend() != 1 && k >= 0 && k < this->len)
                     {
-                        Date d1;
-                        d1 = getTimeNow();
-                        (*(this->p + k)).DateRetal = d1;
-                        cout << "Nhap So Ngay Muon Thue: ";
-                        cin >> (this->p + k)->Number;
-                        (*(this->p + k)).Moto.setIsRend(1);
-                        system("cls");
-                        (this->p + k)->ShowTT();
-                        cmp = 0;
-                    }
-                    else
-                    {
-                        Person p;
-                        (this->p + k)->Per = p;
-                        cout << "\tBan Dang Thue Mot Xe Khac Trong He Thong\n";
+                        cin.ignore();
+                        cin >> (this->p + k)->Per;
+                        if (CheckCmnd((this->p + k)->Per))
+                        {
+                            Date d1;
+                            d1 = getTimeNow();
+                            (*(this->p + k)).DateRetal = d1;
+                            cout << "Nhap So Ngay Muon Thue: ";
+                            cin >> (this->p + k)->Number;
+                            (*(this->p + k)).Moto.setIsRend(1);
+                            system("cls");
+                            (this->p + k)->ShowTT();
+                            cmp = 0;
+                        }
+                        else
+                        {
+                            Person p;
+                            (this->p + k)->Per = p;
+                            cout << "\tBan Dang Thue Mot Xe Khac Trong He Thong\n";
+                        }
                     }
                 }
-            }
-        } while (cmp);
+            } while (cmp);
+        }
     }
 }
 int List::isMaching(string t1, string t2)
@@ -303,52 +306,91 @@ int List::indexOf(int phankhoi)
 void List::EnterListMoto()
 {
     ifstream in;
-    in.open("ListMotor.txt");
-    int n;
-    in >> n;
-    this->len = n;
-    this->p = new ThueXe[this->len];
-    in.ignore();
-    for (int i = 0; i < this->len; i++)
+    string filename;
+
+    // in.open("ListMotor.txt");
+    do
     {
-        Motobike m;
-        in >> m;
-        (*(this->p + i)).Moto = m;
-        (*(this->p + i)).Number = 0;
-    }
+        cout << "Nhap Ten File: ";
+        cin >> filename;
+        filename += ".txt";
+        in.open(filename);
+        if (in.fail())
+        {
+            cout << "File not found: " << filename << endl;
+            continue;
+        }
+        else
+        {
+            int n;
+            in >> n;
+            this->len = n;
+            this->p = new ThueXe[this->len];
+            in.ignore();
+            for (int i = 0; i < this->len; i++)
+            {
+                Motobike m;
+                in >> m;
+                (*(this->p + i)).Moto = m;
+                (*(this->p + i)).Number = 0;
+            }
+            system("cls");
+            cout << "\t---Upload from file Motorbike---\n";
+            break;
+        }
+
+    } while (1);
+
+    // in.open("fileinput.txt");
+
     in.close();
-    system("cls");
-    cout << "\t---Upload from file Motorbike---\n";
 }
 void List::EnterListUser()
 {
     ifstream in;
-    in.open("ListUser.txt");
-    int n;
-    in >> n;
-    in.ignore();
-    for (int i = 0; i < n; i++)
+    string filename;
+    do
     {
-        Person per;
-        int day;
-        in >> per;
-        in >> day;
-        in.ignore();
-        Date d2 = getTimeNow();
-        (*(this->p + i)).Per = per;
-        (*(this->p + i)).DateRetal = d2;
-        (*(this->p + i)).Number = day;
-        (*(this->p + i)).Moto.setIsRend(1);
-    }
+        cout << "Nhap Ten File: ";
+        cin >> filename;
+        filename += ".txt";
+        in.open(filename);
+        if (in.fail())
+        {
+            cout << "File not found: " << filename << endl;
+            continue;
+        }
+        else
+        {
+            int n;
+            in >> n;
+            in.ignore();
+            for (int i = 0; i < n; i++)
+            {
+                Person per;
+                int day;
+                in >> per;
+                in >> day;
+                in.ignore();
+                Date d2 = getTimeNow();
+                (*(this->p + i)).Per = per;
+                (*(this->p + i)).DateRetal = d2;
+                (*(this->p + i)).Number = day;
+                (*(this->p + i)).Moto.setIsRend(1);
+            }
+            system("cls");
+            cout << "\t---Uploat from file Person---\n";
+            break;
+        }
+    } while (1);
     in.close();
-    system("cls");
-    cout << "\t---Uploat from file Person---\n";
 }
 void List::ShowMotoUser()
 {
     if (this->len == 0)
     {
         cout << "Khong  co xe trong he thong\n";
+        // system("pause");
     }
     else
     {
@@ -611,7 +653,7 @@ void List::ShowRented()
     }
     else
     {
-        cout << "\tDanh Sach Xe Va Tinh Trang Trong He Thong\n";
+        // cout << "\tDanh Sach Xe Va Tinh Trang Trong He Thong\n";
         int j = 1;
         cout << char(213);
         for (int i = 0; i <= 164; i++)
@@ -823,7 +865,7 @@ void List::StatisticOfCC()
         cout << char(196);
     }
     cout << char(180) << endl;
-     _char = char(179);
+    _char = char(179);
     cout << _char << setw(20) << "Tu 50CC Den 125CC ";
     cout << _char << setw(11) << cc2 << "         ";
     cout << _char << endl
@@ -837,7 +879,7 @@ void List::StatisticOfCC()
         cout << char(196);
     }
     cout << char(180) << endl;
-     _char = char(179);
+    _char = char(179);
     cout << _char << setw(20) << "Tren 125CC     ";
     cout << _char << setw(11) << cc3 << "         ";
     cout << _char << endl

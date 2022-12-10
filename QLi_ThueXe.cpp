@@ -1,8 +1,9 @@
 
 #include "List.h"
-#include <iostream>
+// #include <iostream>
 #include <windows.h>
-#include <conio.h>
+// #include <conio.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 void set_color(int code)
@@ -173,8 +174,30 @@ int Login()
     int lc;
     do
     {
-        cout << "\n\n\n\t\t\t\t\tNhap lua chon cua ban: ";
-        cin >> lc;
+        while (1)
+        {
+            try
+            {
+                cout << "\n\t\t\tNhap lua chon cua ban: ";
+                cin >> lc;
+                if (!cin)
+                    throw string("");
+                else
+                    break;
+            }
+
+            catch (...)
+            {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "\n\t\t\tNhap Sai! Vui Long Nhap Lai!\n";
+                // cout << "\n\t\t\tNhap lua chon cua ban: ";
+                // cin >> cmt;
+                continue;
+                // if(cmt == 'n')
+                //     again = 1;
+            }
+        }
     } while (lc < 0 || lc > 2);
     switch (lc)
     {
@@ -198,8 +221,30 @@ void ShowAdmin(List &t)
     {
         set_color(10);
         MenuAdmin();
-        cout << "\n\t\t\tNhap lua chon cua ban: ";
-        cin >> cmt;
+        while (1)
+        {
+            try
+            {
+                cout << "\n\t\t\tNhap lua chon cua ban: ";
+                cin >> cmt;
+                if (!cin)
+                    throw string("");
+                else
+                    break;
+            }
+
+            catch (...)
+            {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "\n\t\t\tNhap Sai! Vui Long Nhap Lai!\n";
+                // cout << "\n\t\t\tNhap lua chon cua ban: ";
+                // cin >> cmt;
+                continue;
+                // if(cmt == 'n')
+                //     again = 1;
+            }
+        }
         switch (cmt)
         {
         case 1:
@@ -258,13 +303,57 @@ void ShowAdmin(List &t)
             cout << "\t\t2. Hien Thi Danh Sach Xe Chua Duoc Thue\n";
             cout << "\t\t3. Hien Thi Thong Tin Tat Ca Khach Dang Thue Xe\n";
             cout << "\t\t0. Thoat\n";
-            cout << "\tNhap lua chon: ";
-            cin >> cmp;
+            while (1)
+            {
+                try
+                {
+                    cout << "\n\t\t\tNhap lua chon cua ban: ";
+                    cin >> cmp;
+                    if (!cin)
+                        throw string("");
+                    else
+                        break;
+                }
+
+                catch (...)
+                {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << "\n\t\t\tNhap Sai! Vui Long Nhap Lai!\n";
+                    // cout << "\n\t\t\tNhap lua chon cua ban: ";
+                    // cin >> cmt;
+                    continue;
+                    // if(cmt == 'n')
+                    //     again = 1;
+                }
+            }
             while (cmp < 0 || cmp > 3)
             {
                 cout << "\t\tLua Chon Khong Phu Hop! Vui Long Nhap Lai!\n";
-                cout << "\tNhap lua chon: ";
-                cin >> cmp;
+                while (1)
+                {
+                    try
+                    {
+                        cout << "\n\t\t\tNhap lua chon cua ban: ";
+                        cin >> cmp;
+                        if (!cin)
+                            throw string("");
+                        else
+                            break;
+                    }
+
+                    catch (...)
+                    {
+                        cin.clear();
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cout << "\n\t\t\tNhap Sai! Vui Long Nhap Lai!\n";
+                        // cout << "\n\t\t\tNhap lua chon cua ban: ";
+                        // cin >> cmt;
+                        continue;
+                        // if(cmt == 'n')
+                        //     again = 1;
+                    }
+                }
             }
             switch (cmp)
             {
@@ -287,6 +376,7 @@ void ShowAdmin(List &t)
             case 3:
             {
                 system("cls");
+                cout << "\t------Thong Tin Cac Khach Hang Dang Thue Xe------\n";
                 t.ShowRented();
                 system("pause");
             }
@@ -315,13 +405,57 @@ void ShowAdmin(List &t)
             cout << "\t\t1. Sap Xep Tang Dan Theo Tien Thue Cua Khach\n";
             cout << "\t\t2. Sap Xep Giam Dan Theo Tien Thue Cua Khach\n";
             cout << "\t\t0. Thoat\n";
-            cout << "\tNhap lua chon: ";
-            cin >> cmp;
+            while (1)
+            {
+                try
+                {
+                    cout << "\n\t\t\tNhap lua chon cua ban: ";
+                    cin >> cmp;
+                    if (!cin)
+                        throw string("");
+                    else
+                        break;
+                }
+
+                catch (...)
+                {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << "\n\t\t\tNhap Sai! Vui Long Nhap Lai!\n";
+                    // cout << "\n\t\t\tNhap lua chon cua ban: ";
+                    // cin >> cmt;
+                    continue;
+                    // if(cmt == 'n')
+                    //     again = 1;
+                }
+            }
             while (cmp < 0 || cmp > 2)
             {
                 cout << "\t\tLua Chon Khong Phu Hop! Vui Long Nhap Lai!\n";
-                cout << "\tNhap lua chon: ";
-                cin >> cmp;
+                while (1)
+                {
+                    try
+                    {
+                        cout << "\n\t\t\tNhap lua chon cua ban: ";
+                        cin >> cmp;
+                        if (!cin)
+                            throw string("");
+                        else
+                            break;
+                    }
+
+                    catch (...)
+                    {
+                        cin.clear();
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cout << "\n\t\t\tNhap Sai! Vui Long Nhap Lai!\n";
+                        // cout << "\n\t\t\tNhap lua chon cua ban: ";
+                        // cin >> cmt;
+                        continue;
+                        // if(cmt == 'n')
+                        //     again = 1;
+                    }
+                }
             }
             switch (cmp)
             {
@@ -428,6 +562,7 @@ void ShowAdmin(List &t)
         case 0:
             break;
         default:
+            cout << "Lua Chon Khong Hop Le!\n";
             break;
         }
 
@@ -436,7 +571,7 @@ void ShowAdmin(List &t)
 
 void ShowUser(List &t)
 {
-    int cmt, q;
+    int cmt, q, again = 0;
     List tmp;
     do
     {
@@ -444,9 +579,34 @@ void ShowUser(List &t)
         system("cls");
         MenuUser();
         set_color(7);
-        cout << "\n\t\t\tNhap lua chon cua ban: ";
+        // cout << "\n\t\t\tNhap lua chon cua ban: ";
         set_color(3);
-        cin >> cmt;
+        while (1)
+        {
+            try
+            {
+                cout << "\n\t\t\tNhap lua chon cua ban: ";
+                cin >> cmt;
+                if (!cin)
+                    throw string("");
+                else
+                    break;
+            }
+
+            catch (...)
+            {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "\n\t\t\tNhap Sai! Vui Long Nhap Lai!\n";
+                // cout << "\n\t\t\tNhap lua chon cua ban: ";
+                // cin >> cmt;
+                continue;
+                // if(cmt == 'n')
+                //     again = 1;
+            }
+        }
+
+        // cin >> cmt;
         switch (cmt)
         {
         case 1:
@@ -469,7 +629,6 @@ void ShowUser(List &t)
         {
             set_color(7);
             system("cls");
-
             t.UpdateRental();
             system("pause");
         }
@@ -564,13 +723,57 @@ void ShowUser(List &t)
             cout << "\t\t1. Sap Xep Theo Gia Xe Tang Dan\n";
             cout << "\t\t2. Sap Xep Theo Gia Xe Giam Dan\n";
             cout << "\t\t0. Thoat\n";
-            cout << "\tNhap lua chon: ";
-            cin >> cmp;
+            while (1)
+            {
+                try
+                {
+                    cout << "\n\t\t\tNhap lua chon cua ban: ";
+                    cin >> cmp;
+                    if (!cin)
+                        throw string("");
+                    else
+                        break;
+                }
+
+                catch (...)
+                {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << "\n\t\t\tNhap Sai! Vui Long Nhap Lai!\n";
+                    // cout << "\n\t\t\tNhap lua chon cua ban: ";
+                    // cin >> cmt;
+                    continue;
+                    // if(cmt == 'n')
+                    //     again = 1;
+                }
+            }
             while (cmp < 0 || cmp > 2)
             {
                 cout << "\tLua Chon Khong Phu Hop! Vui Long Nhap Lai!\n";
-                cout << "\tNhap lua chon: ";
-                cin >> cmp;
+                while (1)
+                {
+                    try
+                    {
+                        cout << "\n\t\t\tNhap lua chon cua ban: ";
+                        cin >> cmt;
+                        if (!cin)
+                            throw string("");
+                        else
+                            break;
+                    }
+
+                    catch (...)
+                    {
+                        cin.clear();
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cout << "\n\t\t\tNhap Sai! Vui Long Nhap Lai!\n";
+                        // cout << "\n\t\t\tNhap lua chon cua ban: ";
+                        // cin >> cmt;
+                        continue;
+                        // if(cmt == 'n')
+                        //     again = 1;
+                    }
+                }
             }
             switch (cmp)
             {
