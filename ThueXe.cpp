@@ -128,10 +128,10 @@ void ThueXe::ShowTB()
     }
     cout << char(180) << endl;
 }
-void ThueXe::ShowTBOfFile()
+void ThueXe::ShowTBOfFile(ofstream& out)
 {
-    ofstream out;
-    out.open("outfile.txt");
+    // ofstream out;
+    // out.open("outfile.txt");
     if (!out)
     {
         cerr << "Error: file not opened" << endl;
@@ -159,5 +159,5 @@ void ThueXe::ShowTBOfFile()
     //     out << char(196);
     // }
     // out << char(180) << endl;
-    out.close();
+    // out.close();
 }

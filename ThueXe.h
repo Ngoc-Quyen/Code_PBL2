@@ -29,5 +29,5 @@ class ThueXe
         friend class List;
         void ShowTB();
         void ShowTB1();
-        void ShowTBOfFile();
+        void ShowTBOfFile(ofstream &);
 };

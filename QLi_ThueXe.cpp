@@ -1,9 +1,11 @@
-
-#include "List.h"
 // #include <iostream>
 #include <windows.h>
 // #include <conio.h>
-#include <bits/stdc++.h>
+#include <iomanip>
+#include <iostream>
+#include <fstream>
+#include <limits>
+#include "List.h"
 using namespace std;
 
 void set_color(int code)
@@ -217,6 +219,7 @@ void ShowAdmin(List &t)
 {
     int cmt, q;
     List tmp;
+
     do
     {
         set_color(10);
@@ -372,8 +375,12 @@ void ShowAdmin(List &t)
             case 3:
             {
                 system("cls");
+                ofstream out; //
+                out.open("outfile.txt", ios::out);
                 cout << "\t------Thong Tin Cac Khach Hang Dang Thue Xe------\n";
                 t.ShowRented();
+                t.ShowRentedOfFile(out);
+                out.close();
                 system("pause");
             }
             break;
@@ -555,18 +562,12 @@ void ShowAdmin(List &t)
             system("pause");
         }
         break;
-        case 16:
-        {
-            t.ShowRentedOfFile();
-        }
-        break;
         case 0:
             break;
         default:
             cout << "Lua Chon Khong Hop Le!\n";
             break;
         }
-
 
     } while (cmt != 0);
 }
@@ -820,6 +821,7 @@ int main()
     Page();
     List t;
     int key;
+    // ofstream out("outfile.txt");
     do
     {
         key = Login();
@@ -836,4 +838,5 @@ int main()
         }
     } while (key != 3);
     return 0;
+    // out.close();
 }

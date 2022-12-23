@@ -453,30 +453,7 @@ void List::ShowCustomer()
         }
     }
 }
-void List::ShowCustomerOfFile()
-{
-    ofstream out;
-    out.open("outfile.txt");
-    if (this->len == 0)
-    {
-        out << "Khong co xe trong he thong\n";
-    }
-    else
-    {
-        out << "------Danh sach xe da thue va khach hang thue------\n";
-        int j = 1;
-        for (int i = 0; i < this->len; i++)
-        {
-            if ((*(this->p + i)).Moto.getIsRend())
-            {
-                out << "Customer " << j << ":" << endl;
-                (*(this->p + i)).Show();
-                j++;
-            }
-        }
-    }
-    out.close();
-}
+
 long long List::SumMoney()
 {
     long long sum = ThueXe::tong;
@@ -728,11 +705,11 @@ void List::ShowRented()
         }
     }
 }
-void List::ShowRentedOfFile()
+void List::ShowRentedOfFile(ofstream &out)
 {
 
-    ofstream out;
-    out.open("outfile.txt");
+    // ofstream out;
+    // out.open("outfile.txt");
     if (!out)
     {
         cerr << "Error: file not opened" << endl;
@@ -746,7 +723,7 @@ void List::ShowRentedOfFile()
     {
         // out << "\tDanh Sach Xe Va Tinh Trang Trong He Thong\n";
         int j = 1;
-        out << char(213);
+        // out << char(213);
         // for (int i = 0; i <= 164; i++)
         // {
         //     if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165)
@@ -757,14 +734,15 @@ void List::ShowRentedOfFile()
         // }
         // out << char(184) << endl;
         // char _char = char(179);
-        out /*<< _char*/ << setw(25) << "TEN KHACH HANG  ";
-        out /*<< _char*/ << setw(20) << "SO CMND/HO CHIEU  ";
-        out /*<< _char*/ << setw(20) << "SO DIEN THOAI   ";
-        out /*<< _char*/ << setw(20) << "TEN XE        ";
-        out /*<< _char*/ << setw(20) << "BIEN SO XE     ";
-        out /*<< _char*/ << setw(20) << "GIA(VND)    ";
-        out /*<< _char*/ << setw(20) << "NGAY THUE    ";
-        out /*<< _char*/ << setw(20) << "SO NGAY THUE   ";
+        out << setw(3) << "STT";
+        out /*<< _char*/ << setw(25) << "TEN KHACH HANG";
+        out /*<< _char*/ << setw(20) << "SO CMND/HO CHIEU";
+        out /*<< _char*/ << setw(20) << "SO DIEN THOAI";
+        out /*<< _char*/ << setw(20) << "TEN XE";
+        out /*<< _char*/ << setw(20) << "BIEN SO XE";
+        out /*<< _char*/ << setw(20) << "GIA(VND)";
+        out /*<< _char*/ << setw(20) << "NGAY THUE";
+        out /*<< _char*/ << setw(20) << "SO NGAY THUE";
 
         out /*<< _char*/ << endl;
         // out << char(198);
@@ -784,8 +762,9 @@ void List::ShowRentedOfFile()
                 // out << "Customer " << j << endl;
 
                 // (*(this->p + i)).Show();
-                (*(this->p + i)).ShowTBOfFile();
-
+                out << setw(3) << j;
+                (*(this->p + i)).ShowTBOfFile(out); 
+                out << endl;
                 j++;
             }
         }
@@ -804,7 +783,7 @@ void List::ShowRentedOfFile()
             out << "\tChua Co Khach Thue\n";
         }
     }
-    out.close();
+    // out.close();
 }
 void List::UpdatePrice(string bienso)
 {

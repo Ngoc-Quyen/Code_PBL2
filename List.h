@@ -14,7 +14,6 @@ public:
     ~List();
     List operator=(const List &);
     int getLength();
-    // void Display();
     void Add(Motobike &); //Them xe vao he thong
     int CheckBienso(Motobike &); 
     bool CheckCmnd(Person &);
@@ -26,8 +25,7 @@ public:
     void EnterListMoto(); //NHap xe vao he thong bang file
     void EnterListUser(); //Nhap khach hang thue bang file
     void ShowMotoUser(); // Danh sach xe chua thue
-    void ShowCustomer(); // Danh sach xe da duoc thue
-    void ShowCustomerOfFile(); //Danh sach xe dang thue ra file
+    void ShowCustomer(); // Danh sach xe dang thue
     long long SumMoney();         // Tong doanh thu
     void FindUser(string, int &); // tim kiem xe theo bien so
     void FindUser(int, int &);    // tim kiem xe theo phan khoi
@@ -46,6 +44,5 @@ public:
     void MergeSortAdm(List&, int, int, bool(*) (int, int));
     void StatisticOfCC(); //thong ke theo phan khoi
     void ShowStatistics();
-    void ShowRentedOfFile();
-    // void StatisticOfIsRend();
+    void ShowRentedOfFile(ofstream&);//Danh sach xe dang thue ra file
 };

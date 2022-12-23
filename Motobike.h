@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <iomanip>
+#include <iostream>
+#include <fstream>
 using namespace std;
 #pragma once
 class Motobike
