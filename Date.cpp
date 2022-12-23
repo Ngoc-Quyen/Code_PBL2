@@ -161,6 +161,7 @@ int Date::DayMonth()
             return 0;
             break;
         }
+    return 0;
 }
 void Date::NextDay()
 {

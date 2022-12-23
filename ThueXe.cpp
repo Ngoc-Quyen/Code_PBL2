@@ -128,3 +128,36 @@ void ThueXe::ShowTB()
     }
     cout << char(180) << endl;
 }
+void ThueXe::ShowTBOfFile()
+{
+    ofstream out;
+    out.open("outfile.txt");
+    if (!out)
+    {
+        cerr << "Error: file not opened" << endl;
+        return ;
+    }
+    // char _char = char(179);
+    out <</* _char <<*/ setw(25) << this->Per.getName() + " ";
+    out <</* _char <<*/ setw(20) << this->Per.getCMND() + " ";
+    out <</* _char <<*/ setw(20) << this->Per.getSDT() + " ";
+    out <</* _char <<*/ setw(20) << this->Moto.getNameBike() + " ";
+    out <</* _char <<*/ setw(20) << this->Moto.getBienso() + " ";
+    out <</* _char <<*/ setw(19) << this->Moto.getGia() << " ";
+    out <</* _char <<*/ setw(11) << this->DateRetal.getDay() << "/" << this->DateRetal.getMonth() << "/" << this->DateRetal.getYear() << " ";
+
+    out <</* _char <<*/ setw(19) << this->Number << " ";
+    
+    // out << _char << endl
+    //      << char(195);
+    // for (int i = 0; i <= 164; i++)
+    // {
+    //     if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165)
+    //     {
+    //         out << char(197);
+    //     }
+    //     out << char(196);
+    // }
+    // out << char(180) << endl;
+    out.close();
+}

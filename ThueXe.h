@@ -1,6 +1,10 @@
+#include <fstream>
+#include <iostream>
 #include "Person.h"
 #include "Motobike.h"
 #include "Date.h"
+using namespace std;
+#pragma once
 
 class ThueXe
 {
@@ -25,4 +29,5 @@ class ThueXe
         friend class List;
         void ShowTB();
         void ShowTB1();
+        void ShowTBOfFile();
 };

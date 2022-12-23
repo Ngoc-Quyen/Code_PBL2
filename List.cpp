@@ -1,5 +1,6 @@
 #include "List.h"
 #include <iostream>
+#include <fstream>
 using namespace std;
 List::List()
 {
@@ -42,22 +43,7 @@ int List::getLength()
 {
     return this->len;
 }
-void List::Display()
-{
-    if (this->len == 0)
-    {
-        cout << "\tKhong Co Xe Trong He Thong! Vui Long Kiem Tra Lai!\n";
-    }
-    else
-    {
-        cout << "\tDanh Sach Xe Trong He Thong\n";
-        for (int i = 0; i < this->len; i++)
-        {
-            cout << "Motobike " << i + 1 << endl;
-            (*(this->p + i)).Show();
-        }
-    }
-}
+
 void List::Add(Motobike &m)
 {
     if (this->len == 0)
@@ -467,6 +453,30 @@ void List::ShowCustomer()
         }
     }
 }
+void List::ShowCustomerOfFile()
+{
+    ofstream out;
+    out.open("outfile.txt");
+    if (this->len == 0)
+    {
+        out << "Khong co xe trong he thong\n";
+    }
+    else
+    {
+        out << "------Danh sach xe da thue va khach hang thue------\n";
+        int j = 1;
+        for (int i = 0; i < this->len; i++)
+        {
+            if ((*(this->p + i)).Moto.getIsRend())
+            {
+                out << "Customer " << j << ":" << endl;
+                (*(this->p + i)).Show();
+                j++;
+            }
+        }
+    }
+    out.close();
+}
 long long List::SumMoney()
 {
     long long sum = ThueXe::tong;
@@ -492,7 +502,10 @@ void List::FindUser(string Bienso, int &q)
             (*(this->p + k)).Moto.ShowTB1();
         }
         if (q == 0)
-            cout << "Xe Da Duoc Thue! Quy Khach Vui Long Chon Xe Khac\n";
+        {
+            (*(this->p + k)).ShowTT();
+        }
+            // cout << "Xe Dang Duoc Thue! Quy Khach Vui Long Chon Xe Khac\n";
     }
     else
     {
@@ -564,14 +577,14 @@ void List::DeleteMoto(string bienso)
             cout << "Xoa Xe Thanh Cong!\n";
         }
         else
-            cout << "Xe Da Duoc Thue!\n";
+            cout << "Xe Dang Duoc Thue!\n";
     }
     else
-        cout << "Khong Co Xe He Thong! Vui Long Kiem Tra Lai!\n";
+        cout << "Khong Co Xe Trong He Thong! Vui Long Kiem Tra Lai!\n";
 }
 void List::UpdateAfter(int n)
 {
-    if (n < 0)
+    if (n < 0 || n > this->len)
         cout << "So Luong Xe Nhap Vao Khong Hop Le!\n";
     else
     {
@@ -632,7 +645,7 @@ void List::UpdateDateRental(string bienso)
     int k = indexOf(bienso);
     if ((this->p + k)->Moto.getIsRend() == 0)
     {
-        cout << "Khong Co Xe Nao Trong Danh Sach\n";
+        cout << "Xe Chua Duoc Thue!\n";
         return;
     }
     if (k == -1)
@@ -645,6 +658,7 @@ void List::UpdateDateRental(string bienso)
     (this->p + k)->DateRetal = n;
     cout << "\nCap Nhat Thanh Cong\n";
 }
+
 void List::ShowRented()
 {
     if (this->len == 0)
@@ -713,6 +727,84 @@ void List::ShowRented()
             cout << "\tChua Co Khach Thue\n";
         }
     }
+}
+void List::ShowRentedOfFile()
+{
+
+    ofstream out;
+    out.open("outfile.txt");
+    if (!out)
+    {
+        cerr << "Error: file not opened" << endl;
+        return;
+    }
+    if (this->len == 0)
+    {
+        out << "\tKhong Co Xe Nao Trong He Thong\n";
+    }
+    else
+    {
+        // out << "\tDanh Sach Xe Va Tinh Trang Trong He Thong\n";
+        int j = 1;
+        out << char(213);
+        // for (int i = 0; i <= 164; i++)
+        // {
+        //     if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165)
+        //     {
+        //         out << char(209);
+        //     }
+        //     out << char(205);
+        // }
+        // out << char(184) << endl;
+        // char _char = char(179);
+        out /*<< _char*/ << setw(25) << "TEN KHACH HANG  ";
+        out /*<< _char*/ << setw(20) << "SO CMND/HO CHIEU  ";
+        out /*<< _char*/ << setw(20) << "SO DIEN THOAI   ";
+        out /*<< _char*/ << setw(20) << "TEN XE        ";
+        out /*<< _char*/ << setw(20) << "BIEN SO XE     ";
+        out /*<< _char*/ << setw(20) << "GIA(VND)    ";
+        out /*<< _char*/ << setw(20) << "NGAY THUE    ";
+        out /*<< _char*/ << setw(20) << "SO NGAY THUE   ";
+
+        out /*<< _char*/ << endl;
+        // out << char(198);
+        // for (int i = 0; i <= 164; i++)
+        // {
+        //     if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165)
+        //     {
+        //         out << char(216);
+        //     }
+        //     out << char(205);
+        // }
+        // out << char(181) << endl;
+        for (int i = 0; i < this->len; i++)
+        {
+            if ((*(this->p + i)).Moto.getIsRend())
+            {
+                // out << "Customer " << j << endl;
+
+                // (*(this->p + i)).Show();
+                (*(this->p + i)).ShowTBOfFile();
+
+                j++;
+            }
+        }
+        // out << char(212);
+        // for (int i = 0; i <= 164; i++)
+        // {
+        //     if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165)
+        //     {
+        //         out << char(207);
+        //     }
+        //     out << char(205);
+        // }
+        // out << char(190) << endl;
+        if (j == 1)
+        {
+            out << "\tChua Co Khach Thue\n";
+        }
+    }
+    out.close();
 }
 void List::UpdatePrice(string bienso)
 {

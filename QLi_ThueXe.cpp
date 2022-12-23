@@ -35,39 +35,39 @@ void PriceTable()
     cout << "\t------------------------------------------------------------------------"
             "----------------------------------------------------------------------------"
             "-----------------------------";
-    cout << "\t\t\t\t\t   Gia thue\t|\t\t     60000 (VND/Ngay)"
-         << "\t\t\t|\t\t  80000 - 100000 (VND/Ngay)";
-    cout << "\t\t|\t100000 - 130000 (VND/Ngay)\n";
+    cout << "\t\t\t\t\t   Gia thue\t|\t\t     80000 (VND/Ngay)"
+         << "\t\t\t|\t\t  100000 - 130000 (VND/Ngay)";
+    cout << "\t\t|\t130000 - 150000 (VND/Ngay)\n";
     cout << "\t------------------------------------------------------------------------"
             "----------------------------------------------------------------------------"
             "-----------------------------\n\n\n\n";
     cout << endl;
 }
 
-void QuyDinh()
-{
-    cout << "\n\n\t\t\t\t\t\t\t\t\t\tHOMESTAY Kinh chao quy khach" << endl;
-    cout << endl;
-    cout << "\n\n\t\t\t\t\t\t\t\t\tDUOI DAY LA QUY DINH THUE XE MAY O HOMESTAY" << endl;
-    cout << endl;
-    cout << "\t------------------------------------------------------------------------"
-            "----------------------------------------------------------------------------"
-            "-----------------------------"
-         << endl;
-    cout << "\n\t\t\t\t\t1. Cong ty HOMETAY cho thue xe may theo ngay, va quy khach vui long lua chon truoc so ngay muon thue"
-         << "\n\n\t\t\t\t\t2. Khi tien hanh thue xe, quy khach vui long thanh toan truoc hoa don thue xe" << endl;
-    cout << "\n\t\t\t\t\t3. Xem ki bien so, mau son co trung voi hoa don thue xe hay khong"
-         << "\n\n\t\t\t\t\t4. Kiem tra chat luong xe truoc khi thue" << endl;
-    cout << "\n\t\t\t\t\t5. Khach hang phai mang theo giay to tuy than va ban Photo giay phep lai xe"
-         << "\n\n\t\t\t\t\t6. Moi khach hang chi duoc phep thue 1 xe, va thue toi da trong 30 ngay" << endl;
-    cout << endl;
-    cout << "\t------------------------------------------------------------------------"
-            "----------------------------------------------------------------------------"
-            "-----------------------------"
-         << endl;
-    cout << endl;
-    cout << "\n\n\t\t\t\t\t\t\t\t\t\t   Cam on quy khach!" << endl;
-}
+// void QuyDinh()
+// {
+//     cout << "\n\n\t\t\t\t\t\t\t\t\t\tHOMESTAY Kinh chao quy khach" << endl;
+//     cout << endl;
+//     cout << "\n\n\t\t\t\t\t\t\t\t\tDUOI DAY LA QUY DINH THUE XE MAY O HOMESTAY" << endl;
+//     cout << endl;
+//     cout << "\t------------------------------------------------------------------------"
+//             "----------------------------------------------------------------------------"
+//             "-----------------------------"
+//          << endl;
+//     cout << "\n\t\t\t\t\t1. Cong ty HOMETAY cho thue xe may theo ngay, va quy khach vui long lua chon truoc so ngay muon thue"
+//          << "\n\n\t\t\t\t\t2. Khi tien hanh thue xe, quy khach vui long thanh toan truoc hoa don thue xe" << endl;
+//     cout << "\n\t\t\t\t\t3. Xem ki bien so, mau son co trung voi hoa don thue xe hay khong"
+//          << "\n\n\t\t\t\t\t4. Kiem tra chat luong xe truoc khi thue" << endl;
+//     cout << "\n\t\t\t\t\t5. Khach hang phai mang theo giay to tuy than va ban Photo giay phep lai xe"
+//          << "\n\n\t\t\t\t\t6. Moi khach hang chi duoc phep thue 1 xe, va thue toi da trong 30 ngay" << endl;
+//     cout << endl;
+//     cout << "\t------------------------------------------------------------------------"
+//             "----------------------------------------------------------------------------"
+//             "-----------------------------"
+//          << endl;
+//     cout << endl;
+//     cout << "\n\n\t\t\t\t\t\t\t\t\t\t   Cam on quy khach!" << endl;
+// }
 
 void MenuUser()
 {
@@ -238,11 +238,7 @@ void ShowAdmin(List &t)
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 cout << "\n\t\t\tNhap Sai! Vui Long Nhap Lai!\n";
-                // cout << "\n\t\t\tNhap lua chon cua ban: ";
-                // cin >> cmt;
                 continue;
-                // if(cmt == 'n')
-                //     again = 1;
             }
         }
         switch (cmt)
@@ -559,12 +555,18 @@ void ShowAdmin(List &t)
             system("pause");
         }
         break;
+        case 16:
+        {
+            t.ShowRentedOfFile();
+        }
+        break;
         case 0:
             break;
         default:
             cout << "Lua Chon Khong Hop Le!\n";
             break;
         }
+
 
     } while (cmt != 0);
 }
