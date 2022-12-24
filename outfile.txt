@@ -1,5 +1,7 @@
+                                                           ------Thong Tin Cac Khach Hang Dang Thue Xe------
+
 STT           TEN KHACH HANG    SO CMND/HO CHIEU       SO DIEN THOAI              TEN XE          BIEN SO XE            GIA(VND)           NGAY THUE        SO NGAY THUE
-  1              ngoc quyen               11001             0999001              Sirius           74F1-9699               80000          23/12/2022                   2 
-  2         tran ngoc quyen               11002             0999002      Exciter Yamaha           29F1-1921              120000          23/12/2022                   3 
-  3          pham hong ngan               11003             0999003             Jupiter          73AF-00600               60000          23/12/2022                   1 
-  4     Tran Thi Ngoc Quyen                3627          0382106557              Vision          92F1-01540              150000          23/12/2022                   4 
+  1              ngoc quyen               11001             0999001              Sirius           74F1-9699               80000          24/12/2022                   2 
+  2         tran ngoc quyen               11002             0999002      Exciter Yamaha           29F1-1921              120000          24/12/2022                   3 
+  3          pham hong ngan               11003             0999003             Jupiter          73AF-00600               60000          24/12/2022                   1 
+  4                     oke                2526                0384              Vision          92F1-01540              150000          24/12/2022                   2 

@@ -482,7 +482,7 @@ void List::FindUser(string Bienso, int &q)
         {
             (*(this->p + k)).ShowTT();
         }
-            // cout << "Xe Dang Duoc Thue! Quy Khach Vui Long Chon Xe Khac\n";
+        // cout << "Xe Dang Duoc Thue! Quy Khach Vui Long Chon Xe Khac\n";
     }
     else
     {
@@ -734,6 +734,7 @@ void List::ShowRentedOfFile(ofstream &out)
         // }
         // out << char(184) << endl;
         // char _char = char(179);
+        out << setw(110) << "------Thong Tin Cac Khach Hang Dang Thue Xe------\n\n";
         out << setw(3) << "STT";
         out /*<< _char*/ << setw(25) << "TEN KHACH HANG";
         out /*<< _char*/ << setw(20) << "SO CMND/HO CHIEU";
@@ -763,7 +764,7 @@ void List::ShowRentedOfFile(ofstream &out)
 
                 // (*(this->p + i)).Show();
                 out << setw(3) << j;
-                (*(this->p + i)).ShowTBOfFile(out); 
+                (*(this->p + i)).ShowTBOfFile(out);
                 out << endl;
                 j++;
             }
