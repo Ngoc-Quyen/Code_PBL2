@@ -87,16 +87,16 @@ istream &operator>>(istream &in, Motobike &moto)
 }
 ostream &operator<<(ostream &out, Motobike moto)
 {
-    cout << "\tTen xe: " << moto.getNameBike() << endl;
-    cout << "\tien so xe: " << moto.getBienso() << endl;
-    cout << "\tPhan khoi xe: " << moto.getPhanKhoi() << "cc" << endl;
-    cout << "\tMau xe: " << moto.getMau() << endl;
-    cout << "\tGia thue: " << moto.getGia() << endl;
-    cout << "\tTinh trang: ";
-    if (moto.getIsRend() != 0)
-        cout << "Da thue\n";
-    else
-        cout << "Chua thue\n";
+    cout << moto.getNameBike() << endl;
+    cout  << moto.getBienso() << endl;
+    cout << moto.getPhanKhoi()<< endl;
+    cout << moto.getMau() << endl;
+    cout << moto.getGia() << endl;
+    // cout << "\tTinh trang: ";
+    // if (moto.getIsRend() != 0)
+    //     cout << "Da thue\n";
+    // else
+    //     cout << "Chua thue\n";
 }
 
 

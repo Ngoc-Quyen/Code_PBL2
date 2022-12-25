@@ -6,7 +6,6 @@ class List
 private:
     ThueXe *p;
     int len;
-    
 public:
     List();
     List(ThueXe *, int = 0);
@@ -45,4 +44,6 @@ public:
     void StatisticOfCC(); //thong ke theo phan khoi
     void ShowStatistics();
     void ShowRentedOfFile(ofstream&);//Danh sach xe dang thue ra file
+    void AddOfFileMotor();
+    void AddOfFileUser();
 };

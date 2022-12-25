@@ -58,51 +58,7 @@ ThueXe &ThueXe::operator=(const ThueXe &tx)
     this->DateReturn = tx.DateReturn;
     this->Number = tx.Number;
 }
-void ThueXe::ShowTB1()
-{
-    cout << char(213);
-    for (int i = 0; i <= 164; i++)
-    {
-        if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165)
-        {
-            cout << char(209);
-        }
-        cout << char(205);
-    }
-    cout << char(184) << endl;
-    char _char = char(179);
-    cout << _char << setw(25) << "TEN KHACH HANG  ";
-    cout << _char << setw(20) << "SO CMND/HO CHIEU ";
-    cout << _char << setw(20) << "SO DIEN THOAI   ";
-    cout << _char << setw(20) << "TEN XE        ";
-    cout << _char << setw(20) << "BIEN SO XE     ";
-    cout << _char << setw(20) << "GIA(VND)    ";
-    cout << _char << setw(20) << "NGAY THUE    ";
-    cout << _char << setw(20) << "SO NGAY THUE   "; 
 
-    cout << _char << endl;
-    cout << char(198);
-    for (int i = 0; i <= 164; i++)
-    {
-        if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165)
-        {
-            cout << char(216);
-        }
-        cout << char(205);
-    }
-    cout << char(181) << endl;
-//CHO IN DU LIEU
-    cout << char(212);
-    for (int i = 0; i <= 164; i++)
-    {
-        if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165)
-        {
-            cout << char(207);
-        }
-        cout << char(205);
-    }
-    cout << char(190) << endl;
-}
 void ThueXe::ShowTB()
 {
     char _char = char(179);
@@ -115,12 +71,12 @@ void ThueXe::ShowTB()
     cout << _char << setw(11) << this->DateRetal.getDay() << "/" << this->DateRetal.getMonth() << "/" << this->DateRetal.getYear() << " ";
 
     cout << _char << setw(19) << this->Number << " ";
-    
+    cout << _char << setw(19) << this->GetMoney() << " ";
     cout << _char << endl
          << char(195);
-    for (int i = 0; i <= 164; i++)
+    for (int i = 0; i <= 184; i++)
     {
-        if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165)
+        if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165 || i == 185)
         {
             cout << char(197);
         }
@@ -147,7 +103,7 @@ void ThueXe::ShowTBOfFile(ofstream& out)
     out <</* _char <<*/ setw(11) << this->DateRetal.getDay() << "/" << this->DateRetal.getMonth() << "/" << this->DateRetal.getYear() << " ";
 
     out <</* _char <<*/ setw(19) << this->Number << " ";
-    
+    out << setw(19) << this->GetMoney() << " ";
     // out << _char << endl
     //      << char(195);
     // for (int i = 0; i <= 164; i++)

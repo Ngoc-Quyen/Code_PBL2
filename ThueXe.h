@@ -18,16 +18,14 @@ class ThueXe
 
     public:
         ThueXe();
-        ThueXe(const Person &, const Motobike&, /*const Date&, const Date&, */int = 0);
+        ThueXe(const Person &, const Motobike&, int = 0);
         ~ThueXe();
         void Show();
         long long GetMoney();
         void ShowBill();
         void ShowTT();
         ThueXe& operator = (const ThueXe&);
-        //ThueXe& operator () (const ThueXe&);
         friend class List;
         void ShowTB();
-        void ShowTB1();
         void ShowTBOfFile(ofstream &);
 };

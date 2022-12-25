@@ -148,12 +148,3 @@ void Person::Show1()
     }
     cout << char(190) << endl;
 }
-
-// int main()
-// {
-//     Person m1;
-//     cin >> m1;
-//     // m1.showTable();
-//     m1.Show1();
-//     return 0;
-// }

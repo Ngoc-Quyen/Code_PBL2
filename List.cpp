@@ -250,6 +250,7 @@ void List::UpdateRental()
             } while (cmp);
         }
     }
+    this->AddOfFileUser();
 }
 int List::isMaching(string t1, string t2)
 {
@@ -300,7 +301,7 @@ void List::EnterListMoto()
         cout << "Nhap Ten File: ";
         cin >> filename;
         filename += ".txt";
-        in.open(filename);
+        in.open(filename, ios::in);
         if (in.fail())
         {
             cout << "File not found: " << filename << endl;
@@ -351,10 +352,14 @@ void List::EnterListUser()
             int n;
             in >> n;
             in.ignore();
+            // static int lenUser = n;
             for (int i = 0; i < n; i++)
             {
                 Person per;
                 int day;
+                string bs;
+                // in >> bs;
+                getline(in, bs);
                 in >> per;
                 in >> day;
                 in.ignore();
@@ -362,7 +367,15 @@ void List::EnterListUser()
                 (*(this->p + i)).Per = per;
                 (*(this->p + i)).DateRetal = d2;
                 (*(this->p + i)).Number = day;
-                (*(this->p + i)).Moto.setIsRend(1);
+                int k = indexOf(bs);
+                if (k != -1)
+                {
+                    Motobike tmp;
+                    tmp = (*(this->p + k)).Moto;
+                    (*(this->p + k)).Moto = (*(this->p + i)).Moto;
+                    (*(this->p + i)).Moto = tmp;
+                    (*(this->p + i)).Moto.setIsRend(1);
+                }
             }
             system("cls");
             cout << "\t---Uploat from file Person---\n";
@@ -587,6 +600,7 @@ void List::UpdateAfter(int n)
                     cout << "Xe Co Trong He Thong Va Chua Duoc Thue!\n";
             }
         }
+        this->AddOfFileUser();
     }
 }
 void List::UpdateAfter(string bs)
@@ -647,9 +661,9 @@ void List::ShowRented()
         // cout << "\tDanh Sach Xe Va Tinh Trang Trong He Thong\n";
         int j = 1;
         cout << char(213);
-        for (int i = 0; i <= 164; i++)
+        for (int i = 0; i <= 184; i++)
         {
-            if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165)
+            if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165 || i == 185)
             {
                 cout << char(209);
             }
@@ -665,12 +679,12 @@ void List::ShowRented()
         cout << _char << setw(20) << "GIA(VND)    ";
         cout << _char << setw(20) << "NGAY THUE    ";
         cout << _char << setw(20) << "SO NGAY THUE   ";
-
+        cout << _char << setw(20) << "TONG TIEN THUE ";
         cout << _char << endl;
         cout << char(198);
-        for (int i = 0; i <= 164; i++)
+        for (int i = 0; i <= 184; i++)
         {
-            if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165)
+            if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165 || i == 185)
             {
                 cout << char(216);
             }
@@ -681,18 +695,15 @@ void List::ShowRented()
         {
             if ((*(this->p + i)).Moto.getIsRend())
             {
-                // cout << "Customer " << j << endl;
-
-                // (*(this->p + i)).Show();
                 (*(this->p + i)).ShowTB();
 
                 j++;
             }
         }
         cout << char(212);
-        for (int i = 0; i <= 164; i++)
+        for (int i = 0; i <= 184; i++)
         {
-            if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165)
+            if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165 || i == 185)
             {
                 cout << char(207);
             }
@@ -734,7 +745,7 @@ void List::ShowRentedOfFile(ofstream &out)
         // }
         // out << char(184) << endl;
         // char _char = char(179);
-        out << setw(110) << "------Thong Tin Cac Khach Hang Dang Thue Xe------\n\n";
+        out << setw(120) << "------Thong Tin Cac Khach Hang Dang Thue Xe------\n\n";
         out << setw(3) << "STT";
         out /*<< _char*/ << setw(25) << "TEN KHACH HANG";
         out /*<< _char*/ << setw(20) << "SO CMND/HO CHIEU";
@@ -744,7 +755,7 @@ void List::ShowRentedOfFile(ofstream &out)
         out /*<< _char*/ << setw(20) << "GIA(VND)";
         out /*<< _char*/ << setw(20) << "NGAY THUE";
         out /*<< _char*/ << setw(20) << "SO NGAY THUE";
-
+        out << setw(20) << "TONG TIEN THUE";
         out /*<< _char*/ << endl;
         // out << char(198);
         // for (int i = 0; i <= 164; i++)
@@ -1004,3 +1015,115 @@ void List::ShowStatistics()
     }
     cout << char(190) << endl;
 }
+
+void List::AddOfFileMotor()
+{
+    ofstream out;
+    out.open("Motor1.txt");
+    int n = this->len;
+    out << n << endl;
+    for (int i = 0; i < n; i++)
+    {
+        out << (*(this->p + i)).Moto.getNameBike() << endl;
+        out << (*(this->p + i)).Moto.getBienso() << endl;
+        out << (*(this->p + i)).Moto.getPhanKhoi() << endl;
+        out << (*(this->p + i)).Moto.getMau() << endl;
+        out << (*(this->p + i)).Moto.getGia() << endl;
+    }
+
+    out.close();
+    // this->EnterFileMotor();
+}
+void List::AddOfFileUser()
+{
+    int count = 0;
+    for (int i = 0; i < this->len; i++)
+    {
+        if ((*(this->p + i)).Moto.getIsRend())
+        {
+            count++;
+        }
+    }
+    if (this->len != 0)
+    {
+        ofstream out;
+        out.open("User1.txt");
+        int n = count;
+        out << n << endl;
+
+        for (int i = 0; i < this->len; i++)
+        {
+            if ((*(this->p + i)).Moto.getIsRend())
+            {
+                out << (*(this->p + i)).Moto.getBienso() << endl;
+                out << (*(this->p + i)).Per.getName() << endl;
+                out << (*(this->p + i)).Per.getAge() << endl;
+                out << (*(this->p + i)).Per.getCMND() << endl;
+                out << (*(this->p + i)).Per.getSDT() << endl;
+                out << (*(this->p + i)).Per.getAdd() << endl;
+                out << (*(this->p + i)).Number << endl;
+            }
+        }
+        out.close();
+    }
+}
+
+// void List::EnterFileMotor()
+// {
+//     ifstream in;
+//     in.open("Motor1.txt");
+//     int m;
+//     in >> m;
+//     this->len = m;
+//     this->p = new ThueXe[this->len];
+//     in.ignore();
+//     for (int i = 0; i < this->len; i++)
+//     {
+//         Motobike mt;
+//         in >> mt;
+//         (*(this->p + i)).Moto = mt;
+//         (*(this->p + i)).Number = 0;
+//     }
+//     in.close();
+//     this->EnterFileUser();
+//     system("cls");
+// }
+// void List::EnterFileUser()
+// {
+//     if (this->len != 0)
+//     {
+
+//     ifstream in;
+//         in.open("User1.txt");
+//         int m;
+//         in >> m;
+//         // this->len = m;
+//         in.ignore();
+//         for (int i = 0; i < m; i++)
+//         {
+//             Person per;
+//             int day;
+//             string bs;
+//             getline(in, bs);
+//             in >> per;
+//             in >> day;
+//             in.ignore();
+//             Date d2 = getTimeNow();
+//             (*(this->p + i)).Per = per;
+//             (*(this->p + i)).DateRetal = d2;
+//             (*(this->p + i)).Number = day;
+//             int k = indexOf(bs);
+//             if (k == -1)
+//             {
+//                 Motobike tmp;
+//                 tmp = (*(this->p + k)).Moto;
+//                 (*(this->p + k)).Moto = (*(this->p + i)).Moto;
+//                 (*(this->p + i)).Moto = tmp;
+//                 (*(this->p + i)).Moto.setIsRend(1);
+//             }
+//         }
+//         in.close();
+//         system("cls");
+//     }
+        
+// }

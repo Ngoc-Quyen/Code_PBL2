@@ -1,19 +1,36 @@
-3
-ngoc quyen
+5
+73G1-12345
+Nguyen Van B
 2003
 11001
 0999001
-quang nam
+Quang Nam
 2
-tran ngoc quyen
+43F1-17634
+Tran Ngoc Quyen
 2002
 11002
 0999002
-dc2
+Quang Binh
 3
-pham hong ngan
+39F3-12238
+Pham Hong Ngan
 2001
 11003
 0999003
-dc3
+Da Nang
 1
+43B1-98276
+Tran Thi Ngoc Quyen
+2000
+11004
+0999004
+Ha Tinh
+3
+43F1-19836
+Nguyen Thi B
+1998
+10235
+038210
+Da Nang
+3

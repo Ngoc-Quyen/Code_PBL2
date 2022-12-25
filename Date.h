@@ -20,13 +20,10 @@ class Date
         int getYear();
         friend istream& operator >> (istream&, Date&);
         friend ostream& operator << (ostream&, Date);
-        void ShowRental();
-        bool IsYear(int );
-        int DayMonth();
+        void ShowRental(); //Hien thi ngay thue xe cua khach
+        bool IsYear(int ); // kiem tra nam nhuan
+        int DayMonth(); 
         void NextDay();
-        void ShowReturn(int );
-        Date getTimeNow();
-        Date getTimeReturn(int);
-        string getDate();
-
+        void ShowReturn(int ); //Hien thi ngay tra xe
+        Date getTimeNow(); //tra gia tri ngay hien tai
 };

@@ -1,6 +1,4 @@
-// #include <iostream>
 #include <windows.h>
-// #include <conio.h>
 #include <iomanip>
 #include <iostream>
 #include <fstream>
@@ -28,19 +26,19 @@ void PriceTable()
     system("cls");
     cout << "\n\n\t\t\t\t\t\t\t\t\tBANG GIA THUE XE MAY CUA CONG TY HOMESTAY THEO SO PHAN KHOI" << endl;
     cout << "\n\n";
-    cout << "\t------------------------------------------------------------------------"
+    cout << "------------------------------------------------------------------------"
             "----------------------------------------------------------------------------"
             "-----------------------------";
     cout << "\t\t\t\t\t   So Phan Khoi\t|\t\t\t   50 (CC)"
          << "\t\t\t|\t\t   50 < X <= 125 (CC)";
     cout << "\t\t\t|\t125 < X <= 175 (CC)\n";
-    cout << "\t------------------------------------------------------------------------"
+    cout << "------------------------------------------------------------------------"
             "----------------------------------------------------------------------------"
             "-----------------------------";
     cout << "\t\t\t\t\t   Gia thue\t|\t\t     80000 (VND/Ngay)"
          << "\t\t\t|\t\t  100000 - 130000 (VND/Ngay)";
     cout << "\t\t|\t130000 - 150000 (VND/Ngay)\n";
-    cout << "\t------------------------------------------------------------------------"
+    cout << "------------------------------------------------------------------------"
             "----------------------------------------------------------------------------"
             "-----------------------------\n\n\n\n";
     cout << endl;
@@ -223,7 +221,10 @@ void ShowAdmin(List &t)
     do
     {
         set_color(10);
+        // t.EnterFileMotor();
+        // t.EnterFileUser();
         MenuAdmin();
+
         while (1)
         {
             try
@@ -291,6 +292,7 @@ void ShowAdmin(List &t)
                 } while (!t.CheckBienso(moto));
                 t.Add(moto);
             }
+            t.AddOfFileMotor();
             system("pause");
         }
         break;
@@ -393,6 +395,7 @@ void ShowAdmin(List &t)
         break;
         case 5:
         {
+            // t.EnterFileMotor();
             system("cls");
             string bs;
             cout << "Nhap Bien So Xe Can Tim: ";
@@ -403,6 +406,7 @@ void ShowAdmin(List &t)
         break;
         case 6:
         {
+            // t.EnterFileUser();
             system("cls");
             int cmp;
             cout << "\t\t1. Sap Xep Tang Dan Theo Tien Thue Cua Khach\n";
@@ -502,6 +506,7 @@ void ShowAdmin(List &t)
             cout << "Nhap Bien So Xe Muon Xoa: ";
             cin >> str;
             t.DeleteMoto(str);
+            t.AddOfFileMotor();
             system("pause");
         }
         break;
@@ -524,6 +529,7 @@ void ShowAdmin(List &t)
             cout << "\nNhap Bien So Xe: ";
             cin >> str;
             t.UpdatePrice(str);
+            t.AddOfFileMotor();
             system("pause");
         }
         break;
@@ -537,6 +543,7 @@ void ShowAdmin(List &t)
             cout << "Nhap Bien So Xe: ";
             cin >> bs;
             t.UpdateDateRental(bs);
+            t.AddOfFileUser();
             system("pause");
         }
         break;
@@ -550,12 +557,14 @@ void ShowAdmin(List &t)
             t.BillUser(str, q);
             if (q != 0)
                 t.UpdateAfter(str);
+                t.AddOfFileUser();
             system("pause");
         }
         break;
         case 13:
         {
             set_color(2);
+            // t.EnterFileMotor();
             system("cls");
             cout << " So Luong Xe Trong He Thong Theo Phan Khoi\n";
             t.ShowStatistics();
@@ -633,6 +642,7 @@ void ShowUser(List &t)
             set_color(7);
             system("cls");
             t.UpdateRental();
+            t.AddOfFileUser();
             system("pause");
         }
         break;
@@ -655,7 +665,7 @@ void ShowUser(List &t)
             {
             case 1:
             {
-                system("cls");
+                // system("cls");
                 set_color(5);
                 string bs;
                 string str;
@@ -685,7 +695,7 @@ void ShowUser(List &t)
             break;
             case 2:
             {
-                system("cls");
+                // system("cls");
                 set_color(6);
                 int pk;
                 string str;
@@ -821,7 +831,6 @@ int main()
     Page();
     List t;
     int key;
-    // ofstream out("outfile.txt");
     do
     {
         key = Login();
