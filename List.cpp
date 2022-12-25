@@ -718,9 +718,6 @@ void List::ShowRented()
 }
 void List::ShowRentedOfFile(ofstream &out)
 {
-
-    // ofstream out;
-    // out.open("outfile.txt");
     if (!out)
     {
         cerr << "Error: file not opened" << endl;
@@ -732,70 +729,34 @@ void List::ShowRentedOfFile(ofstream &out)
     }
     else
     {
-        // out << "\tDanh Sach Xe Va Tinh Trang Trong He Thong\n";
         int j = 1;
-        // out << char(213);
-        // for (int i = 0; i <= 164; i++)
-        // {
-        //     if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165)
-        //     {
-        //         out << char(209);
-        //     }
-        //     out << char(205);
-        // }
-        // out << char(184) << endl;
-        // char _char = char(179);
         out << setw(120) << "------Thong Tin Cac Khach Hang Dang Thue Xe------\n\n";
         out << setw(3) << "STT";
-        out /*<< _char*/ << setw(25) << "TEN KHACH HANG";
-        out /*<< _char*/ << setw(20) << "SO CMND/HO CHIEU";
-        out /*<< _char*/ << setw(20) << "SO DIEN THOAI";
-        out /*<< _char*/ << setw(20) << "TEN XE";
-        out /*<< _char*/ << setw(20) << "BIEN SO XE";
-        out /*<< _char*/ << setw(20) << "GIA(VND)";
-        out /*<< _char*/ << setw(20) << "NGAY THUE";
-        out /*<< _char*/ << setw(20) << "SO NGAY THUE";
+        out << setw(25) << "TEN KHACH HANG";
+        out << setw(20) << "SO CMND/HO CHIEU";
+        out << setw(20) << "SO DIEN THOAI";
+        out << setw(20) << "TEN XE";
+        out << setw(20) << "BIEN SO XE";
+        out << setw(20) << "GIA(VND)";
+        out << setw(20) << "NGAY THUE";
+        out << setw(20) << "SO NGAY THUE";
         out << setw(20) << "TONG TIEN THUE";
-        out /*<< _char*/ << endl;
-        // out << char(198);
-        // for (int i = 0; i <= 164; i++)
-        // {
-        //     if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165)
-        //     {
-        //         out << char(216);
-        //     }
-        //     out << char(205);
-        // }
-        // out << char(181) << endl;
+        out << endl;
         for (int i = 0; i < this->len; i++)
         {
             if ((*(this->p + i)).Moto.getIsRend())
             {
-                // out << "Customer " << j << endl;
-
-                // (*(this->p + i)).Show();
                 out << setw(3) << j;
                 (*(this->p + i)).ShowTBOfFile(out);
                 out << endl;
                 j++;
             }
         }
-        // out << char(212);
-        // for (int i = 0; i <= 164; i++)
-        // {
-        //     if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165)
-        //     {
-        //         out << char(207);
-        //     }
-        //     out << char(205);
-        // }
-        // out << char(190) << endl;
         if (j == 1)
         {
             out << "\tChua Co Khach Thue\n";
         }
     }
-    // out.close();
 }
 void List::UpdatePrice(string bienso)
 {

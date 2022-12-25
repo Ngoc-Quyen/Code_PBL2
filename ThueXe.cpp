@@ -1,11 +1,9 @@
 #include "ThueXe.h"
 ThueXe::ThueXe() {}
-ThueXe::ThueXe(const Person &p, const Motobike &m, /* const Date& d1, const Date &d2, */ int d)
+ThueXe::ThueXe(const Person &p, const Motobike &m, int d)
 {
     this->Per = p;
     this->Moto = m;
-    // this->DateRetal = d1;
-    // this->DateReturn = d2;
     this->Number = d;
 }
 ThueXe::~ThueXe() {}
@@ -20,7 +18,6 @@ void ThueXe::Show()
     if (this->GetMoney() > 0)
     {
         cout << "\tSo ngay thue: " << this->Number << endl;
-
     }
 }
 long long ThueXe::GetMoney()
@@ -47,7 +44,6 @@ void ThueXe::ShowBill()
     cout << "\tSo ngay thue: " << this->Number << endl;
     cout << "\tTong tien thanh toan: " << this->GetMoney() << endl;
     ThueXe::tong += this->GetMoney();
-
     cout << "-------------Hen Gap Lai----------------" << endl;
 }
 ThueXe &ThueXe::operator=(const ThueXe &tx)
@@ -58,7 +54,6 @@ ThueXe &ThueXe::operator=(const ThueXe &tx)
     this->DateReturn = tx.DateReturn;
     this->Number = tx.Number;
 }
-
 void ThueXe::ShowTB()
 {
     char _char = char(179);
@@ -86,34 +81,19 @@ void ThueXe::ShowTB()
 }
 void ThueXe::ShowTBOfFile(ofstream& out)
 {
-    // ofstream out;
-    // out.open("outfile.txt");
     if (!out)
     {
         cerr << "Error: file not opened" << endl;
         return ;
     }
-    // char _char = char(179);
-    out <</* _char <<*/ setw(25) << this->Per.getName() + " ";
-    out <</* _char <<*/ setw(20) << this->Per.getCMND() + " ";
-    out <</* _char <<*/ setw(20) << this->Per.getSDT() + " ";
-    out <</* _char <<*/ setw(20) << this->Moto.getNameBike() + " ";
-    out <</* _char <<*/ setw(20) << this->Moto.getBienso() + " ";
-    out <</* _char <<*/ setw(19) << this->Moto.getGia() << " ";
-    out <</* _char <<*/ setw(11) << this->DateRetal.getDay() << "/" << this->DateRetal.getMonth() << "/" << this->DateRetal.getYear() << " ";
+    out << setw(25) << this->Per.getName() + " ";
+    out << setw(20) << this->Per.getCMND() + " ";
+    out << setw(20) << this->Per.getSDT() + " ";
+    out << setw(20) << this->Moto.getNameBike() + " ";
+    out << setw(20) << this->Moto.getBienso() + " ";
+    out << setw(19) << this->Moto.getGia() << " ";
+    out << setw(11) << this->DateRetal.getDay() << "/" << this->DateRetal.getMonth() << "/" << this->DateRetal.getYear() << " ";
 
-    out <</* _char <<*/ setw(19) << this->Number << " ";
+    out << setw(19) << this->Number << " ";
     out << setw(19) << this->GetMoney() << " ";
-    // out << _char << endl
-    //      << char(195);
-    // for (int i = 0; i <= 164; i++)
-    // {
-    //     if (i == 25 || i == 45 || i == 65 || i == 85 || i == 105 || i == 125 || i == 145 || i == 165)
-    //     {
-    //         out << char(197);
-    //     }
-    //     out << char(196);
-    // }
-    // out << char(180) << endl;
-    // out.close();
 }

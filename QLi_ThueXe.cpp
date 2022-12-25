@@ -43,32 +43,6 @@ void PriceTable()
             "-----------------------------\n\n\n\n";
     cout << endl;
 }
-
-// void QuyDinh()
-// {
-//     cout << "\n\n\t\t\t\t\t\t\t\t\t\tHOMESTAY Kinh chao quy khach" << endl;
-//     cout << endl;
-//     cout << "\n\n\t\t\t\t\t\t\t\t\tDUOI DAY LA QUY DINH THUE XE MAY O HOMESTAY" << endl;
-//     cout << endl;
-//     cout << "\t------------------------------------------------------------------------"
-//             "----------------------------------------------------------------------------"
-//             "-----------------------------"
-//          << endl;
-//     cout << "\n\t\t\t\t\t1. Cong ty HOMETAY cho thue xe may theo ngay, va quy khach vui long lua chon truoc so ngay muon thue"
-//          << "\n\n\t\t\t\t\t2. Khi tien hanh thue xe, quy khach vui long thanh toan truoc hoa don thue xe" << endl;
-//     cout << "\n\t\t\t\t\t3. Xem ki bien so, mau son co trung voi hoa don thue xe hay khong"
-//          << "\n\n\t\t\t\t\t4. Kiem tra chat luong xe truoc khi thue" << endl;
-//     cout << "\n\t\t\t\t\t5. Khach hang phai mang theo giay to tuy than va ban Photo giay phep lai xe"
-//          << "\n\n\t\t\t\t\t6. Moi khach hang chi duoc phep thue 1 xe, va thue toi da trong 30 ngay" << endl;
-//     cout << endl;
-//     cout << "\t------------------------------------------------------------------------"
-//             "----------------------------------------------------------------------------"
-//             "-----------------------------"
-//          << endl;
-//     cout << endl;
-//     cout << "\n\n\t\t\t\t\t\t\t\t\t\t   Cam on quy khach!" << endl;
-// }
-
 void MenuUser()
 {
     cout << "\n\n\t\t\t\t\t\t\t\t\t\tDICH VU CUNG CAP XE MAY DU LICH HOMESTAY" << endl;
@@ -191,11 +165,7 @@ int Login()
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 cout << "\n\t\t\tNhap Sai! Vui Long Nhap Lai!\n";
-                // cout << "\n\t\t\tNhap lua chon cua ban: ";
-                // cin >> cmt;
                 continue;
-                // if(cmt == 'n')
-                //     again = 1;
             }
         }
     } while (lc < 0 || lc > 2);
@@ -212,7 +182,6 @@ int Login()
         break;
     }
 }
-
 void ShowAdmin(List &t)
 {
     int cmt, q;
@@ -221,10 +190,7 @@ void ShowAdmin(List &t)
     do
     {
         set_color(10);
-        // t.EnterFileMotor();
-        // t.EnterFileUser();
         MenuAdmin();
-
         while (1)
         {
             try
@@ -321,11 +287,7 @@ void ShowAdmin(List &t)
                     cin.clear();
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
                     cout << "\n\t\t\tNhap Sai! Vui Long Nhap Lai!\n";
-                    // cout << "\n\t\t\tNhap lua chon cua ban: ";
-                    // cin >> cmt;
                     continue;
-                    // if(cmt == 'n')
-                    //     again = 1;
                 }
             }
             while (cmp < 0 || cmp > 3)
@@ -348,11 +310,7 @@ void ShowAdmin(List &t)
                         cin.clear();
                         cin.ignore(numeric_limits<streamsize>::max(), '\n');
                         cout << "\n\t\t\tNhap Sai! Vui Long Nhap Lai!\n";
-                        // cout << "\n\t\t\tNhap lua chon cua ban: ";
-                        // cin >> cmt;
                         continue;
-                        // if(cmt == 'n')
-                        //     again = 1;
                     }
                 }
             }
@@ -395,7 +353,6 @@ void ShowAdmin(List &t)
         break;
         case 5:
         {
-            // t.EnterFileMotor();
             system("cls");
             string bs;
             cout << "Nhap Bien So Xe Can Tim: ";
@@ -406,7 +363,6 @@ void ShowAdmin(List &t)
         break;
         case 6:
         {
-            // t.EnterFileUser();
             system("cls");
             int cmp;
             cout << "\t\t1. Sap Xep Tang Dan Theo Tien Thue Cua Khach\n";
@@ -429,11 +385,7 @@ void ShowAdmin(List &t)
                     cin.clear();
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
                     cout << "\n\t\t\tNhap Sai! Vui Long Nhap Lai!\n";
-                    // cout << "\n\t\t\tNhap lua chon cua ban: ";
-                    // cin >> cmt;
                     continue;
-                    // if(cmt == 'n')
-                    //     again = 1;
                 }
             }
             while (cmp < 0 || cmp > 2)
@@ -456,11 +408,7 @@ void ShowAdmin(List &t)
                         cin.clear();
                         cin.ignore(numeric_limits<streamsize>::max(), '\n');
                         cout << "\n\t\t\tNhap Sai! Vui Long Nhap Lai!\n";
-                        // cout << "\n\t\t\tNhap lua chon cua ban: ";
-                        // cin >> cmt;
                         continue;
-                        // if(cmt == 'n')
-                        //     again = 1;
                     }
                 }
             }

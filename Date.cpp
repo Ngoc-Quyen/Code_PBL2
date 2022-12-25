@@ -55,31 +55,6 @@ ostream &operator<<(ostream &out, Date d)
 }
 void Date::ShowRental()
 {
-    // time_t now = time(0);
-    // tm *dt = localtime(&now);
-    // this->setDay(dt->tm_mday);
-    // this->setMonth(dt->tm_mon + 1);
-    // this->setYear(dt->tm_year + 1900);
-
-    // if (this->year != 0)
-    // {
-    //     char _char = char(179);
-    //     cout << _char << setw(12) << this->day << "/" << this->month << "/" << this->year;
-
-    //     cout << _char << endl
-    //          << char(195);
-    //     for (int i = 201; i <= 221; i++)
-    //     {
-
-    //         if (i == 222) 
-    //         {
-    //             cout << char(197);
-    //         }
-    //         cout << char(196);
-    //     }
-    //     cout << char(180) << endl;
-    // }
-
     if (this->year != 0)
         cout << "\tNgay thue: " << this->day << "/" << this->month << "/" << this->year << endl;
 }
@@ -96,33 +71,7 @@ void Date::ShowReturn(int number)
         this->NextDay();
     if (this->year != 0)
         cout << "\tNgay tra: " << this->day << "/" << this->month << "/" << this->year << endl;
-    //  if (this->year != 0)
-    // {
-    //     char _char = char(179);
-    //     cout << _char << setw(12) << this->day << "/" << this->month << "/" << this->year;
-
-    //     cout << _char << endl
-    //          << char(195);
-    //     for (int i = 222; i <= 241; i++)
-    //     {
-
-    //         if (i == 242) 
-    //         {
-    //             cout << char(197);
-    //         }
-    //         cout << char(196);
-    //     }
-    //     cout << char(180) << endl;
-    // }
 }
-// Date Date::getTimeReturn(int number)
-// {
-//     for (int i = 0; i < number; i++)
-//         this->NextDay();
-//     Date d(this->day, this->month, this->year);
-//     return d;
-
-// }
 bool Date::IsYear(int y)
 {
     if (y % 400 == 0)
@@ -201,10 +150,4 @@ void Date::NextDay()
     this->setMonth(m);
     this->setYear(y);
 }
-// int main()
-// {
-//     Date d;
-//     cin >> d;
-//     d.ShowRental();
-//     return 0;
-// }
+

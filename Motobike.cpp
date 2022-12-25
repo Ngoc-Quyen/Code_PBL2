@@ -87,19 +87,17 @@ istream &operator>>(istream &in, Motobike &moto)
 }
 ostream &operator<<(ostream &out, Motobike moto)
 {
-    cout << moto.getNameBike() << endl;
-    cout  << moto.getBienso() << endl;
-    cout << moto.getPhanKhoi()<< endl;
-    cout << moto.getMau() << endl;
-    cout << moto.getGia() << endl;
-    // cout << "\tTinh trang: ";
-    // if (moto.getIsRend() != 0)
-    //     cout << "Da thue\n";
-    // else
-    //     cout << "Chua thue\n";
+    cout << "\tTen xe: " << moto.getNameBike() << endl;
+    cout << "\tien so xe: " << moto.getBienso() << endl;
+    cout << "\tPhan khoi xe: " << moto.getPhanKhoi() << "cc" << endl;
+    cout << "\tMau xe: " << moto.getMau() << endl;
+    cout << "\tGia thue: " << moto.getGia() << endl;
+    cout << "\tTinh trang: ";
+    if (moto.getIsRend() != 0)
+        cout << "Da thue\n";
+    else
+        cout << "Chua thue\n";
 }
-
-
 void Motobike::showTable()
 {
     char _char = char(179);
@@ -124,7 +122,6 @@ void Motobike::showTable()
     }
     cout << char(180) << endl;
 }
-
 void Motobike::Show1()
 {
     cout << char(213);
@@ -146,10 +143,8 @@ void Motobike::Show1()
     cout << _char << setw(20) << "TINH TRANG XE    ";
     cout << _char << endl;
     cout << char(198);
-
     for (int i = 0; i <= 119; i++)
     {
-
         if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 || i == 120)
         {
             cout << char(216);
@@ -159,10 +154,8 @@ void Motobike::Show1()
     cout << char(181) << endl;
         this->showTable();
     cout << char(212);
-
     for (int i = 0; i <= 119; i++)
     {
-
         if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 || i == 120)
         {
             cout << char(207);

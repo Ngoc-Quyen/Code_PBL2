@@ -71,7 +71,6 @@ istream &operator>>(istream &in, Person &p)
     getline(in, p.Add);
     return in;
 }
-
 ostream &operator<<(ostream &out, Person p)
 {
     cout << "\tTen khach hang: " << p.getName() << endl;
@@ -93,7 +92,6 @@ void Person::showTable()
          << char(195);
     for (int i = 0; i <= 99; i++)
     {
-
         if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 ) 
         {
             cout << char(197);
@@ -123,10 +121,8 @@ void Person::Show1()
     cout << _char << setw(20) << "DIA CHI           ";
     cout << _char << endl;
     cout << char(198);
-
     for (int i = 0; i <= 99; i++)
     {
-
         if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100)
         {
             cout << char(216);
@@ -136,7 +132,6 @@ void Person::Show1()
     cout << char(181) << endl;
         this->showTable();
     cout << char(212);
-
     for (int i = 0; i <= 99; i++)
     {
 
