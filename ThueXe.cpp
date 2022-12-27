@@ -63,8 +63,15 @@ void ThueXe::ShowTB()
     cout << _char << setw(20) << this->Moto.getNameBike() + " ";
     cout << _char << setw(20) << this->Moto.getBienso() + " ";
     cout << _char << setw(19) << this->Moto.getGia() << " ";
-    cout << _char << setw(11) << this->DateRetal.getDay() << "/" << this->DateRetal.getMonth() << "/" << this->DateRetal.getYear() << " ";
-
+    if (this->DateRetal.getDay() < 10 && this->DateRetal.getMonth() < 10)
+        cout << _char << setw(10) << "0" << this->DateRetal.getDay() << "/0" << this->DateRetal.getMonth() << "/" << this->DateRetal.getYear() << " ";
+    else 
+        if (this->DateRetal.getDay() < 10 && this->DateRetal.getMonth() > 10)
+            cout << _char << setw(10) << "0" << this->DateRetal.getDay() << "/" << this->DateRetal.getMonth() << "/" << this->DateRetal.getYear() << " ";
+        else 
+            if (this->DateRetal.getDay() > 10 && this->DateRetal.getMonth() < 10)
+                cout << _char << setw(11) << this->DateRetal.getDay() << "/0" << this->DateRetal.getMonth() << "/" << this->DateRetal.getYear() << " ";
+            else cout << _char << setw(11) << this->DateRetal.getDay() << "/" << this->DateRetal.getMonth() << "/" << this->DateRetal.getYear() << " ";
     cout << _char << setw(19) << this->Number << " ";
     cout << _char << setw(19) << this->GetMoney() << " ";
     cout << _char << endl
@@ -92,8 +99,15 @@ void ThueXe::ShowTBOfFile(ofstream& out)
     out << setw(20) << this->Moto.getNameBike() + " ";
     out << setw(20) << this->Moto.getBienso() + " ";
     out << setw(19) << this->Moto.getGia() << " ";
-    out << setw(11) << this->DateRetal.getDay() << "/" << this->DateRetal.getMonth() << "/" << this->DateRetal.getYear() << " ";
-
+    if (this->DateRetal.getDay() < 10 && this->DateRetal.getMonth() < 10)
+        out << setw(11) << "0" << this->DateRetal.getDay() << "/0" << this->DateRetal.getMonth() << "/" << this->DateRetal.getYear() << " ";
+    else 
+        if (this->DateRetal.getDay() < 10 && this->DateRetal.getMonth() > 10)
+            out << setw(11) << "0" << this->DateRetal.getDay() << "/" << this->DateRetal.getMonth() << "/" << this->DateRetal.getYear() << " ";
+        else 
+            if (this->DateRetal.getDay() > 10 && this->DateRetal.getMonth() < 10)
+                out << setw(12) << this->DateRetal.getDay() << "/0" << this->DateRetal.getMonth() << "/" << this->DateRetal.getYear() << " ";
+            else out << setw(12) << this->DateRetal.getDay() << "/" << this->DateRetal.getMonth() << "/" << this->DateRetal.getYear() << " ";
     out << setw(19) << this->Number << " ";
     out << setw(19) << this->GetMoney() << " ";
 }

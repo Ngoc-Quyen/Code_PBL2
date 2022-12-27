@@ -32,19 +32,79 @@ int Date::getYear()
 }
 istream &operator>>(istream &in, Date &d)
 {
-    cout << "Nhap lan luot ngay, thang, nam: ";
-    in >> d.day >> d.month >> d.year;
+            cout << "Nhap lan luot ngay, thang, nam: ";
+            in >> d.day >> d.month >> d.year;
     while (d.month < 1 || d.month > 12)
     {
-        cout << "Nhap thang sai roi kia thang ngu\n";
-        cout << "Nhap lai thang: ";
-        in >> d.month;
+        while (1)
+        {
+            try
+            {
+                cout << "Nhap thang sai roi\n";
+                cout << "Nhap lai thang: ";
+                in >> d.month;
+                if (!in)
+                    throw string("");
+                else
+                    break;
+            }
+
+            catch (...)
+            {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "\n\t\t\tNhap Sai! Vui Long Nhap Lai!\n";
+                continue;
+            }
+        }
     }
     while (d.day > d.DayMonth())
     {
-        cout << "Nhap ngay sai roi kia thang ngu\n";
-        cout << "Nhap lai ngay: ";
-        in >> d.day;
+        while (1)
+        {
+            try
+            {
+                cout << "Nhap ngay sai roi\n";
+                cout << "Nhap lai ngay: ";
+                in >> d.day;
+                if (!in)
+                    throw string("");
+                else
+                    break;
+            }
+
+            catch (...)
+            {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "\n\t\t\tNhap Sai! Vui Long Nhap Lai!\n";
+                continue;
+            }
+        }
+    }
+    while (d.year < 1000)
+    {
+        while (1)
+        {
+            try
+            {
+                cout << "Nhap nam khong phu hop\n";
+                cout << "Nhap lai nam: ";
+                in >> d.year;
+                if (!in)
+                    throw string("");
+                else
+                    break;
+            }
+
+            catch (...)
+            {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "\n\t\t\tNhap Sai! Vui Long Nhap Lai!\n";
+                continue;
+            }
+        }
     }
     return in;
 }
@@ -150,4 +210,3 @@ void Date::NextDay()
     this->setMonth(m);
     this->setYear(y);
 }
-

@@ -492,6 +492,7 @@ void ShowAdmin(List &t)
             cin >> bs;
             t.UpdateDateRental(bs);
             t.AddOfFileUser();
+            t.AddOfFileUser2();
             system("pause");
         }
         break;
@@ -591,6 +592,7 @@ void ShowUser(List &t)
             system("cls");
             t.UpdateRental();
             t.AddOfFileUser();
+            t.AddOfFileUser2();
             system("pause");
         }
         break;

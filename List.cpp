@@ -251,6 +251,7 @@ void List::UpdateRental()
         }
     }
     this->AddOfFileUser();
+    this->AddOfFileUser2();
 }
 int List::isMaching(string t1, string t2)
 {
@@ -1029,6 +1030,39 @@ void List::AddOfFileUser()
     }
 }
 
+void List::AddOfFileUser2()
+{
+    int count = 0;
+    for (int i = 0; i < this->len; i++)
+    {
+        if ((*(this->p + i)).Moto.getIsRend())
+        {
+            count++;
+        }
+    }
+    if (this->len != 0)
+    {
+        ofstream out;
+        out.open("User2.txt");
+        int n = count;
+        out << n << endl;
+
+        for (int i = 0; i < this->len; i++)
+        {
+            if ((*(this->p + i)).Moto.getIsRend())
+            {
+                out << (*(this->p + i)).Moto.getBienso() << endl;
+                out << (*(this->p + i)).Per.getName() << endl;
+                out << (*(this->p + i)).Per.getAge() << endl;
+                out << (*(this->p + i)).Per.getCMND() << endl;
+                out << (*(this->p + i)).Per.getSDT() << endl;
+                out << (*(this->p + i)).Per.getAdd() << endl;
+                out << (*(this->p + i)).Number << endl;
+            }
+        }
+        out.close();
+    }
+}
 // void List::EnterFileMotor()
 // {
 //     ifstream in;
