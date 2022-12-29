@@ -1,7 +1,8 @@
                                                                      ------Thong Tin Cac Khach Hang Dang Thue Xe------
 
 STT           TEN KHACH HANG    SO CMND/HO CHIEU       SO DIEN THOAI              TEN XE          BIEN SO XE            GIA(VND)           NGAY THUE        SO NGAY THUE      TONG TIEN THUE
-  1            Nguyen Van B               11001             0999001              Sirius          73G1-12345              100000           01/02/1009                   2              200000 
-  2          Pham Hong Ngan               11003             0999003       Honda WinnerX          39F3-12238              150000           27/12/2022                   1              150000 
-  3              Ngoc Quyen                2627             0381564               Dream          43B1-98276              100000           27/12/2022                   4              400000 
-  4               Hong Ngan                2528              036587              Vision          92F1-01540              110000           27/12/2022                   2              220000 
+  1            Nguyen Van B               11001             0999001              Sirius          73G1-12345              100000           28/12/2022                   2              200000 
+  2                 no name                2629              036854       Honda WinnerX          39F3-12238              150000           28/12/2022                   2              300000 
+  3              Ngoc Quyen                2627             0381564               Dream          43B1-98276              100000           28/12/2022                   4              400000 
+  4                sayonara               23685              023658              Vision          92F1-01540              110000           28/12/2022                   3              330000 
+  5               quyen san                2628              036584     Honda Air Black          43F1-19836              120000           28/12/2022                   2              240000 

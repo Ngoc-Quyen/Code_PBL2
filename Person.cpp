@@ -60,8 +60,26 @@ istream &operator>>(istream &in, Person &p)
 {
     cout << "Nhap Ten khach hang: ";
     getline(in, p.Name);
-    cout << "Nhap Nam Sinh: ";
-    in >> p.Age;
+    while (1)
+    {
+        try
+        {
+            cout << "Nhap Nam Sinh: ";
+            in >> p.Age;
+            if (!in)
+                throw string("");
+            else
+                break;
+        }
+
+        catch (...)
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "\n\t\t\tNhap Sai! Vui Long Nhap Lai!\n";
+            continue;
+        }
+    }
     cout << "Nhap So CMND/Ho chieu: ";
     in.ignore();
     getline(in, p.CMND);
@@ -92,7 +110,7 @@ void Person::showTable()
          << char(195);
     for (int i = 0; i <= 99; i++)
     {
-        if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 ) 
+        if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100)
         {
             cout << char(197);
         }
@@ -106,7 +124,7 @@ void Person::Show1()
     for (int i = 0; i <= 99; i++)
     {
 
-        if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 )
+        if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100)
         {
             cout << char(209);
         }
@@ -130,7 +148,7 @@ void Person::Show1()
         cout << char(205);
     }
     cout << char(181) << endl;
-        this->showTable();
+    this->showTable();
     cout << char(212);
     for (int i = 0; i <= 99; i++)
     {

@@ -491,8 +491,6 @@ void ShowAdmin(List &t)
             cout << "Nhap Bien So Xe: ";
             cin >> bs;
             t.UpdateDateRental(bs);
-            t.AddOfFileUser();
-            t.AddOfFileUser2();
             system("pause");
         }
         break;
@@ -520,6 +518,13 @@ void ShowAdmin(List &t)
             system("pause");
         }
         break;
+        case 14:
+        {
+            system("cls");
+            cout << "Nhap khach thue vao file co dinh\n";
+            t.AddOfFile();
+            system("pause");
+        }
         case 0:
             break;
         default:
@@ -591,8 +596,6 @@ void ShowUser(List &t)
             set_color(7);
             system("cls");
             t.UpdateRental();
-            t.AddOfFileUser();
-            t.AddOfFileUser2();
             system("pause");
         }
         break;

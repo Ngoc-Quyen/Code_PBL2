@@ -46,5 +46,6 @@ public:
     void ShowRentedOfFile(ofstream&);//Danh sach xe dang thue ra file
     void AddOfFileMotor();
     void AddOfFileUser();
-    void AddOfFileUser2();
+    void AddOfFile();
+    void AddOfFileUser2(int);
 };
